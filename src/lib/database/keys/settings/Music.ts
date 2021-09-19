@@ -1,0 +1,12 @@
+export const Enabled = 'musicEnabled';
+export const DefaultVolume = 'musicDefaultVolume';
+export const Announce = 'musicAnnounce';
+export const DjOnly = 'musicDjOnly';
+export const DjRoles = 'musicDjRoles';
+export const DjBulkQueue = 'musicDjBulkQueue';
+export const PreventDupe = 'musicPreventDupe';
+export const MaxSongsPerUser = 'musicMaxSongsPerUser';
+export const MaxQueueLength = 'musicMaxQueueLength';
+export const MaxDuration = 'musicMaxDuration';
+export const PartiesEnabled = 'musicPartiesEnabled';
+export const AllowStreams = 'musicAllowStreams';

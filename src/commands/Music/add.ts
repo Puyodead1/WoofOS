@@ -1,0 +1,64 @@
+import { ApplyOptions } from '@sapphire/decorators';
+import { Args, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
+import { DurationFormatter } from '@sapphire/time-utilities';
+import { reply, send } from '@skyra/editable-commands';
+import { MessageEmbed } from 'discord.js';
+import { RequireUserInVoiceChannel } from '../../lib/Music/Decorators';
+import type { GuildMessage } from '../../lib/types/Discord';
+import { WoofCommand } from '../../lib/Structures/WoofCommand';
+import { getAudio, reduceLeft } from '../../utils';
+
+@ApplyOptions<CommandOptions>({
+	description: '',
+	requiredClientPermissions: ['SEND_MESSAGES'],
+	aliases: [],
+	runIn: [CommandOptionsRunTypeEnum.GuildText],
+	flags: ['sc', 'soundcloud', 'shuffle', 's']
+})
+export class UserCommand extends WoofCommand {
+	@RequireUserInVoiceChannel()
+	public async run(message: GuildMessage, args: Args) {
+		const songs = await args.rest('song');
+		if (!songs || !songs.length) return reply(message, "Oops, There weren't any results :zzz:");
+
+		const tracks = songs.map((track) => ({ author: message.author.id, track }));
+		const audio = await getAudio(message.guild);
+		audio.add(...tracks);
+
+		if (args.getFlags('shuffle', 's')) {
+			audio.shuffleTracks();
+		}
+
+		if (songs.length === 1) {
+			const total = audio.store.songs.reduce((a, b) => a + (b.track.info.length || 0), 0);
+			let expected = new DurationFormatter().format(total - audio.store.position);
+
+			const embed = new MessageEmbed()
+				.setAuthor('Added to queue', message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 2048 }))
+				.setDescription(
+					`\`${new DurationFormatter().format(tracks[0].track.info.length)}\` [${tracks[0].track.info.title}](${tracks[0].track.info.uri})`
+				)
+				.setColor('RANDOM')
+				.addField('Uploaded by', tracks[0].track.info.author, true)
+				.addField('Estimated wait', expected, true)
+				.addField('Queue position', `${audio.count()}`, true)
+				.setTimestamp();
+
+			return reply(message, {
+				embeds: [embed]
+			});
+		} else {
+			// this is for playlists
+
+			const embed = new MessageEmbed()
+				.setAuthor('Added to queue', message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 2048 }))
+				.setDescription(`**${songs.length}** songs have been added to the queue!`)
+				.setColor('RANDOM')
+				.setTimestamp();
+
+			return reply(message, {
+				embeds: [embed]
+			});
+		}
+	}
+}

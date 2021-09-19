@@ -1,0 +1,23 @@
+name: Pretty
+
+on:
+  pull_request:
+  push:
+    branches:
+    - main
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
+
+    - name: Prettify code
+      uses: creyD/prettier_action@v2.2
+      with:
+        prettier_options: --write **/*.{js,md}
+        commit_message: :O Prettyyyyyyy
