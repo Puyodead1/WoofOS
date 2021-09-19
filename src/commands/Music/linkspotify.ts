@@ -8,7 +8,8 @@ import type { GuildMessage } from 'lib/types/Discord';
 @ApplyOptions<CommandOptions>({
 	description: '',
 	requiredClientPermissions: ['SEND_MESSAGES'],
-	runIn: CommandOptionsRunTypeEnum.GuildText
+	runIn: CommandOptionsRunTypeEnum.GuildText,
+	aliases: ['ls']
 })
 export class UserCommand extends WoofCommand {
 	public async run(message: GuildMessage) {
@@ -18,12 +19,12 @@ export class UserCommand extends WoofCommand {
 		if (user.spotify) return reply(message, `You have already connected a Spotify account! ${EMOJIS.SPOTIFY}`);
 
 		try {
-			const LINK_URL = `http://${BASE_URL}:${CLIENT_OPTIONS.api!.listenOptions!.port}/api/v1/spotify/link/callback`;
+			const LINK_URL = `http://${BASE_URL}:${CLIENT_OPTIONS.api!.listenOptions!.port}/api/v1/spotify/link`;
 			const dmChannel = await message.author.createDM();
 			await dmChannel.send(
-				`👋 Hey there!\n\nTo link your Spotify account, you will need to authorize me to access it. You can do so by visiting the link below and authorizing your desired Spotify account.\n\n${LINK_URL}\n\n*This is only to verify you are the owner of the account, only your username will be saved*`
+				`👋 Hey there!\n\nTo link your Spotify account, you will need to authorize me to access your Discord connections. You can do so by visiting the link below.\n\n${LINK_URL}\n\n*This is only to verify you are the owner of the account, only your Spotify ID will be saved. We check that your Discord connections to verify you are th eowner of the Spotify account.*`
 			);
-			return reply(message, "👋 Hey there! Check your DMs for the setup instructions that i've just sent you!");
+			return reply(message, "👋 Hey there! Check your DMs for the setup instructions that I've just sent you!");
 		} catch (err) {
 			return reply(
 				message,
