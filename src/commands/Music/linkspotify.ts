@@ -16,7 +16,7 @@ export class UserCommand extends WoofCommand {
 		const { users } = this.container.db;
 
 		const user = await users.ensure(message.author.id);
-		if (user.spotify) return reply(message, `You have already connected a Spotify account! ${EMOJIS.SPOTIFY}`);
+		if (user.spotify) return reply(message, `${EMOJIS.SPOTIFY} You have already connected a Spotify account!`);
 
 		try {
 			const LINK_URL = `http://${BASE_URL}:${CLIENT_OPTIONS.api!.listenOptions!.port}/api/v1/spotify/link`;
