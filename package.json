@@ -9,7 +9,8 @@
 		"watch:start": "tsc-watch -b src --onSuccess \"npm start\"",
 		"build:tsc": "tsc -b src",
 		"build:start": "npm run build:tsc && npm run start",
-		"clean:tsc": "rimraf build"
+		"clean:tsc": "rimraf build",
+		"deploy:update": " pm2 stop woof && git pull && npm run clean:tsc && npm run build:tsc && pm2 start woof && pm2 log woof"
 	},
 	"repository": {
 		"type": "git",
