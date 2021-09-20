@@ -1,9 +1,13 @@
-import { SapphireClient, container } from '@sapphire/framework';
+import { SapphireClient, container, StoreRegistryEntries } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
+import type { PlatformStore } from 'lib/database/settings/structures/PlatformStore';
+import type { TaskStore } from 'lib/database/settings/structures/TaskStore';
+import type { SpotifyTokenJSONResponse } from 'lib/types/Spotify';
 import { MUSIC_OPTIONS } from '../../config';
 import { SettingsManager } from '../database/settings/SettingsManager';
 import type { DbSet } from '../database/utils/DbSet';
 import { QueueClient } from '../Music/QueueClient';
+import { ScheduleManager } from './ScheduleManager';
 
 export default class WoofClient extends SapphireClient {
 	public voteMutes = new Set<string>();
@@ -18,6 +22,8 @@ export default class WoofClient extends SapphireClient {
 
 		container.settings = new SettingsManager(this);
 		container.client = this;
+		container.SPOTIFY_TOKEN = null;
+		container.schedule = new ScheduleManager();
 	}
 }
 
@@ -32,9 +38,18 @@ declare module 'discord.js' {
 	}
 }
 
+declare module '@sapphire/framework' {
+	interface StoreRegistryEntries {
+		tasks: TaskStore;
+		platforms: PlatformStore;
+	}
+}
+
 declare module '@sapphire/pieces' {
 	interface Container {
 		settings: SettingsManager;
 		db: DbSet;
+		schedule: ScheduleManager;
+		SPOTIFY_TOKEN: SpotifyTokenJSONResponse | null;
 	}
 }

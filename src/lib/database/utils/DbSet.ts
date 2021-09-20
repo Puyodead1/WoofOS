@@ -1,6 +1,7 @@
 import type { Connection, Repository } from 'typeorm';
 import { connect } from '../database.config';
 import { GuildEntity } from '../entities/GuildEntity';
+import { ScheduleEntity } from '../entities/ScheduleEntity';
 import { MemberRepository } from '../repositories/MemberRepository';
 import { UserRepository } from '../repositories/UserRepository';
 
@@ -20,7 +21,7 @@ export class DbSet {
 	// public readonly rpgItems: Repository<RpgItemEntity>;
 	// public readonly rpgUserItems: Repository<RpgUserItemEntity>;
 	// public readonly rpgUsers: Repository<RpgUserEntity>;
-	// public readonly schedules: Repository<ScheduleEntity>;
+	public readonly schedules: Repository<ScheduleEntity>;
 	// public readonly starboards: Repository<StarboardEntity>;
 	// public readonly suggestions: Repository<SuggestionEntity>;
 	// public readonly twitchSubscriptions: Repository<TwitchSubscriptionEntity>;
@@ -45,7 +46,7 @@ export class DbSet {
 		// this.rpgItems = this.connection.getRepository(RpgItemEntity);
 		// this.rpgUserItems = this.connection.getRepository(RpgUserItemEntity);
 		// this.rpgUsers = this.connection.getRepository(RpgUserEntity);
-		// this.schedules = this.connection.getRepository(ScheduleEntity);
+		this.schedules = this.connection.getRepository(ScheduleEntity);
 		// this.starboards = this.connection.getRepository(StarboardEntity);
 		// this.suggestions = this.connection.getRepository(SuggestionEntity);
 		// this.twitchSubscriptions = this.connection.getRepository(TwitchSubscriptionEntity);
