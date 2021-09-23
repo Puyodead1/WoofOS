@@ -36,7 +36,8 @@ export class UserCommand extends WoofCommand {
 			)
 			.addField('Servers', (guilds || message.client.guilds.cache.size).toLocaleString() + ' servers', true)
 			.addField('Shards', `${(message.guild ? message.guild.shardId : 0) + 1} / ${message.client.options.shardCount || 1} shards`, true)
-			.addField('User', (users || message.client.users.cache.size).toLocaleString() + ' users', true);
+			.addField('User', (users || message.client.users.cache.size).toLocaleString() + ' users', true)
+			.setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }));
 
 		return reply(message, { embeds: [embed] });
 	}

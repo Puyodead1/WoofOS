@@ -41,7 +41,7 @@ export interface SpotifySimplifiedPlaylistObject {
 	owner: SpotifyPublicUserObject;
 	public: boolean | null;
 	snapshot_id: string;
-	tracks: SpotifyPlaylistTracksRefObject[];
+	tracks: SpotifyPlaylistTracksRefObject;
 	type: string;
 	uri: string;
 }
@@ -87,11 +87,12 @@ export enum SpotifyTaggedUnions {
 	SPOTIFY_PUBLIC_UESR_OBJECT = 'SpotifyPublicUserObject'
 }
 
-export type SpotifyUserPlaylistsJSONResponse = SpotifyAuthErrorObject | SpotifyErrorObject | SpotifyUserPlaylistsObject;
-export type SpotifyUserProfileJSONResponse = SpotifyAuthErrorObject | SpotifyErrorObject | SpotifyPublicUserObject;
+export type SpotifyUserPlaylistsJSONResponse = SpotifyUserPlaylistsObject;
+export type SpotifyUserProfileJSONResponse = SpotifyPublicUserObject;
 export type SpotifyTokenJSONResponse = SpotifyTokenResponseObject;
 
 export const SpotifyAPIRoutes = {
 	TOKEN: 'https://accounts.spotify.com/api/token',
-	USER: (id: string) => `https://api.spotify.com/v1/users/${id}`
+	USER: (id: string) => `https://api.spotify.com/v1/users/${id}`,
+	USER_PLAYLISTS: (id: string) => `https://api.spotify.com/v1/users/${id}/playlists`
 };
