@@ -1,11 +1,10 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
-import { reply } from '@skyra/editable-commands';
+import { reply, send } from '@skyra/editable-commands';
 import { EMOJIS } from '../../config';
 import { WoofCommand } from '../../lib/Structures/WoofCommand';
 import type { GuildMessage } from '../../lib/types/Discord';
-import { MessageButton, MessageEmbed } from 'discord.js';
-import { paginatedComponentMessage } from '../../lib/PaginatedComponentMessage';
+import { MessageActionRow, MessageButton, MessageComponentInteraction, MessageEmbed } from 'discord.js';
 
 @ApplyOptions<CommandOptions>({
 	description: '',
@@ -27,7 +26,7 @@ export class UserCommand extends WoofCommand {
 
 		if (!playlists.items.length) return reply(message, "Looks like you don't have any playlists.. Maybe they are private?");
 
-		const pages = [];
+		const pages: MessageEmbed[] = [];
 		for (const playlist of playlists.items) {
 			const description = playlist.description
 				? playlist.description.length > 4096
@@ -36,7 +35,7 @@ export class UserCommand extends WoofCommand {
 				: 'No Description';
 			pages.push(
 				new MessageEmbed()
-					.setAuthor(`Your Spotify account`, this.container.client.user!.displayAvatarURL({ dynamic: true, format: 'png', size: 2048 }))
+					.setAuthor(`Your Spotify Playlists`, this.container.client.user!.displayAvatarURL({ dynamic: true, format: 'png', size: 2048 }))
 					.setTimestamp()
 					.setTitle(playlist.name.length ? playlist.name : 'No Title')
 					.setDescription(description)
@@ -50,11 +49,75 @@ export class UserCommand extends WoofCommand {
 			);
 		}
 
-		const prevButton = new MessageButton().setCustomId('previousbtn').setLabel('Previous').setStyle('PRIMARY').setEmoji('⬅️');
+		const prevButton = new MessageButton().setCustomId('prevBtn').setLabel('Previous').setStyle('PRIMARY').setEmoji('⬅️');
+		const nextButton = new MessageButton().setCustomId('nextBtn').setLabel('Next').setStyle('PRIMARY').setEmoji('➡️');
+		const queueButton = new MessageButton().setCustomId('queueBtn').setLabel('Queue').setStyle('SECONDARY').setEmoji('▶️');
 
-		const nextButton = new MessageButton().setCustomId('nextbtn').setLabel('Next').setStyle('PRIMARY').setEmoji('➡️');
+		let page = 0;
 
-		await paginatedComponentMessage(msg, pages, [prevButton, nextButton]);
+		const row = new MessageActionRow().addComponents(prevButton, nextButton, queueButton);
+		const curPage = await msg.edit({
+			content: null,
+			embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
+			components: [row]
+		});
+
+		const filter = (i: MessageComponentInteraction) => row.components.some((x) => x.customId === i.customId);
+
+		const collector = await curPage.createMessageComponentCollector({
+			filter,
+			time: 120000
+		});
+
+		collector.on('collect', async (i) => {
+			switch (i.customId) {
+				case prevButton.customId:
+					page = page > 0 ? --page : pages.length - 1;
+					break;
+				case nextButton.customId:
+					page = page + 1 < pages.length ? ++page : 0;
+					break;
+				default:
+					break;
+			}
+
+			// show loading
+			await i.deferUpdate();
+
+			if (i.customId === queueButton.customId) {
+				//
+				const playlist = playlists.items[page];
+				row.components.forEach((x) => x.setDisabled(true));
+				await i.editReply({
+					content: `🔎   Loading your playlist \`${playlist.name.length ? playlist.name : playlist.id}\`  −  This may take a minute..`,
+					embeds: [],
+					components: [new MessageActionRow().addComponents(row.components)]
+				});
+				collector.stop('queue');
+			} else {
+				await i.editReply({
+					content: null,
+					embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
+					components: [row]
+				});
+				collector.resetTimer();
+			}
+		});
+
+		collector.on('end', (_, reason) => {
+			if (!curPage.deleted && reason !== 'queue') {
+				row.components.forEach((x) => x.setDisabled(true));
+				curPage.edit({
+					content: null,
+					embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
+					components: [new MessageActionRow().addComponents(row.components)]
+				});
+			}
+		});
+
 		return null;
+
+		// await paginatedComponentMessage(msg, pages, [prevButton, nextButton, queueButton]);
+		// return null;
 	}
 }

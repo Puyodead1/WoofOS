@@ -1,8 +1,6 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { Args, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
-import { DurationFormatter } from '@sapphire/time-utilities';
 import { reply } from '@skyra/editable-commands';
-import type { Message, MessageEmbed } from 'discord.js';
 import { RequireUserInVoiceChannel } from '../../lib/Music/Decorators';
 import type { GuildMessage } from '../../lib/types/Discord';
 import { WoofCommand } from '../../lib/Structures/WoofCommand';
