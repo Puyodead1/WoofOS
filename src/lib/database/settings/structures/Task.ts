@@ -1,5 +1,5 @@
 import { Piece, PieceOptions } from '@sapphire/framework';
-import type { Awaited } from 'discord.js';
+import type { Awaitable } from 'discord.js';
 import type { PartialResponseValue } from 'lib/database/entities/ScheduleEntity';
 
 export abstract class Task extends Piece {
@@ -7,7 +7,7 @@ export abstract class Task extends Piece {
 	 * The run method to be overwritten in actual Task pieces
 	 * @param data The data
 	 */
-	public abstract run(data: unknown): Awaited<PartialResponseValue | null>;
+	public abstract run(data: unknown): Awaitable<PartialResponseValue | null>;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-namespace

@@ -10,7 +10,7 @@ import { WoofCommand } from '../../lib/Structures/WoofCommand';
 	requiredClientPermissions: ['SEND_MESSAGES', 'READ_MESSAGE_HISTORY', 'EMBED_LINKS']
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message, args: Args) {
+	public async messageRun(message: Message, args: Args) {
 		const msg = await args.pick('message');
 
 		const embed = new MessageEmbed()

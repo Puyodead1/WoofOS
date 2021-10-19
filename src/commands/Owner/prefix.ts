@@ -11,7 +11,7 @@ import { WoofCommand } from '../../lib/Structures/WoofCommand';
 	runIn: ['GUILD_TEXT']
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message, _args: Args) {
+	public async messageRun(message: Message, _args: Args) {
 		// const settings = await message.client.getSettings(message);
 		// if (!settings) return reply(message, 'settingsmanager was null');
 

@@ -11,7 +11,7 @@ import { WoofCommand } from '../../lib/Structures/WoofCommand';
 	detailedDescription: 's = seconds, m = minutes, h = hours, d = days'
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message, args: Args) {
+	public async messageRun(message: Message, args: Args) {
 		const when = await args.pick('string');
 		const reminder = await args.pick('string');
 

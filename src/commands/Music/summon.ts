@@ -17,7 +17,7 @@ import { reply } from '@sapphire/plugin-editable-commands';
 })
 export class UserCommand extends WoofCommand {
 	@RequireUserInVoiceChannel()
-	public async run(message: GuildMessage) {
+	public async messageRun(message: GuildMessage) {
 		// Get the voice channel the member is in
 		const { channel } = message.member.voice;
 

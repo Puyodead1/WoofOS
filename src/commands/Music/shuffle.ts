@@ -14,7 +14,7 @@ import { getAudio } from '../../utils';
 export class UserCommand extends WoofCommand {
 	@RequireBotInVoiceChannel()
 	@RequireDj()
-	public async run(message: GuildMessage, args: Args) {
+	public async messageRun(message: GuildMessage, args: Args) {
 		const audio = getAudio(message.guild);
 		audio.shuffleTracks();
 

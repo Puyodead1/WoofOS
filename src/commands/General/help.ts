@@ -12,7 +12,7 @@ import { WoofEmbed } from '../../utils';
 	aliases: ['info', 'about']
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		const embed = WoofEmbed(message, 'Woof  ━  The Discord Dream')
 			.setFooter('Made possible by the team at Chat & Share 💛')
 			.addField('> Perfected Music System', '_ _　− Crystal clear \n_ _　− Spotify support', true)

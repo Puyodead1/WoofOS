@@ -17,7 +17,7 @@ import { getAudio, reduceLeft } from '../../utils';
 })
 export class UserCommand extends WoofCommand {
 	@RequireUserInVoiceChannel()
-	public async run(message: GuildMessage, args: Args) {
+	public async messageRun(message: GuildMessage, args: Args) {
 		const songs = await args.rest('song');
 		if (!songs || !songs.length) return reply(message, "Oops, There weren't any results :zzz:");
 

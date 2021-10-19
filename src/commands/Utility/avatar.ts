@@ -10,7 +10,7 @@ import { WoofEmbed } from '../../utils';
 	requiredClientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS']
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message, args: Args) {
+	public async messageRun(message: Message, args: Args) {
 		const user = await args.pick('user').catch(() => message.author);
 		return reply(message, {
 			embeds: [WoofEmbed(message, `${user.username}'s Avatar`).setImage(user!.avatarURL({ dynamic: true, format: 'png', size: 2048 })!)]

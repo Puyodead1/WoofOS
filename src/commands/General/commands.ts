@@ -12,7 +12,7 @@ import { WoofEmbed } from '../../utils';
 	aliases: ['cmds']
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		const embed = WoofEmbed(message, 'Woof  ━  My Features')
 			.setDescription(`For a full list of all my features & their commands, [**click here**](${BRANDING_WEBSITE})`)
 			.setURL(BRANDING_WEBSITE);

@@ -20,7 +20,7 @@ const flags = ['force'];
 export class UserCommand extends WoofCommand {
 	@RequireSongPresent()
 	@RequireSameVoiceChannel()
-	public async run(message: GuildMessage, args: Args) {
+	public async messageRun(message: GuildMessage, args: Args) {
 		const audio = getAudio(message.guild);
 		const { voiceChannel } = audio;
 

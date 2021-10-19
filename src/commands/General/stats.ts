@@ -11,7 +11,7 @@ import { WoofCommand } from '../../lib/Structures/WoofCommand';
 	description: 'Provides some details about the bot and stats.'
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		let [users, guilds, memory] = [0, 0, 0, 0];
 
 		if (message.client.shard) {

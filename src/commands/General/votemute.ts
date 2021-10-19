@@ -26,7 +26,7 @@ export class UserCommand extends WoofCommand {
 		this.vmTargets = new Set();
 	}
 
-	public async run(message: Message, args: Args) {
+	public async messageRun(message: Message, args: Args) {
 		// if (!message.guild) return reply(message, 'No guild');
 		// const member = await args.pick('member').catch(() => null);
 		// if (!member) return reply(message, 'No member specified');

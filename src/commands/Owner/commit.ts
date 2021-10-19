@@ -14,7 +14,7 @@ const execAsync = promisify(exec);
 	requiredClientPermissions: ['SEND_MESSAGES']
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message, args: Args) {
+	public async messageRun(message: Message, args: Args) {
 		const result = await execAsync('git rev-parse HEAD', {
 			timeout: Number(args.getOption('timeout')) ?? 60000
 		}).catch((error) => ({ stdout: null, stderr: error }));

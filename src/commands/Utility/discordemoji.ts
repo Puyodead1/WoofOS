@@ -36,7 +36,7 @@ interface JsonCategoriesResponse {
 export class UserCommand extends WoofCommand {
 	public API_URL = 'https://emoji.gg/api/';
 
-	public async run(message: Message, args: Args) {
+	public async messageRun(message: Message, args: Args) {
 		const query = await args.pick('string');
 		const count = await args.pick('number').catch(() => 10);
 

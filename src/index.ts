@@ -2,12 +2,9 @@ import '@sapphire/plugin-editable-commands/register';
 import '@sapphire/plugin-api/register';
 import '@sapphire/plugin-logger/register';
 import WoofClient from './lib/Structures/WoofClient';
-import { options as coloretteOptions } from 'colorette';
 import { container } from '@sapphire/framework';
 import { DbSet } from './lib/database/utils/DbSet';
 import { CLIENT_OPTIONS, TOKEN } from './config';
-
-coloretteOptions.enabled = true;
 
 const client = new WoofClient(CLIENT_OPTIONS);
 

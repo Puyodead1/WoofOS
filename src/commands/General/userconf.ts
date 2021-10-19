@@ -9,7 +9,7 @@ import type { Message } from 'discord.js';
 	description: 'Define per-user settings.'
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		return reply(message, '501 - Under Construction');
 	}
 }

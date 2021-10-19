@@ -10,7 +10,7 @@ import { WoofCommand } from '../../lib/Structures/WoofCommand';
 	aliases: ['yt']
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message, args: Args) {
+	public async messageRun(message: Message, args: Args) {
 		const query = await args.pick('string');
 		return reply(message, `501 - search youtube for ${query}`);
 	}

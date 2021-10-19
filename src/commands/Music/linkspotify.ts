@@ -12,7 +12,7 @@ import type { GuildMessage } from 'lib/types/Discord';
 	aliases: ['ls']
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: GuildMessage) {
+	public async messageRun(message: GuildMessage) {
 		const { users } = this.container.db;
 
 		const user = await users.ensure(message.author.id);

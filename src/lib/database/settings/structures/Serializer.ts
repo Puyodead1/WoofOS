@@ -1,5 +1,5 @@
 import { AliasPiece, UserError, ArgumentError, AliasPieceOptions, Args } from '@sapphire/framework';
-import type { Awaited, Guild } from 'discord.js';
+import type { Awaitable, Guild } from 'discord.js';
 import type { GuildEntity } from '../../entities/GuildEntity';
 import type { SchemaKey } from '../schema/SchemaKey';
 
@@ -30,7 +30,7 @@ export abstract class Serializer<T> extends AliasPiece {
 	 * Check whether or not the value is valid.
 	 * @param value The value to check.
 	 */
-	public abstract isValid(value: T, context: SerializerUpdateContext): Awaited<boolean>;
+	public abstract isValid(value: T, context: SerializerUpdateContext): Awaitable<boolean>;
 
 	/**
 	 * The stringify method to be overwritten in actual Serializers

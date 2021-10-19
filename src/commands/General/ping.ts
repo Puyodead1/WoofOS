@@ -9,7 +9,7 @@ import type { Message } from 'discord.js';
 	description: 'Runs a connection test to Discord.'
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		const msg = await reply(message, 'Ping?');
 		return reply(
 			message,

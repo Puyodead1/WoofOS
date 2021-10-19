@@ -16,7 +16,7 @@ export class UserCommand extends WoofCommand {
 	@RequireBotInVoiceChannel()
 	@RequireUserInVoiceChannel()
 	@RequireDj()
-	public async run(message: GuildMessage) {
+	public async messageRun(message: GuildMessage) {
 		const currentChannel = message.guild.me!.voice.channel;
 		const newChannel = message.member.voice.channel;
 		const audio = getAudio(message.guild);

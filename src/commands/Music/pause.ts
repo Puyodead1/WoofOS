@@ -17,7 +17,7 @@ export class UserCommand extends WoofCommand {
 	@RequireUserInVoiceChannel()
 	@RequireSameVoiceChannel()
 	@RequireDj()
-	public async run(message: GuildMessage) {
+	public async messageRun(message: GuildMessage) {
 		await getAudio(message.guild).pause();
 
 		return reply(message, '⏸️ The queue has been paused!');

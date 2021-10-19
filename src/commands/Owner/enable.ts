@@ -11,7 +11,7 @@ import { codeBlock } from '@sapphire/utilities';
 	requiredClientPermissions: ['SEND_MESSAGES']
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message, args: Args) {
+	public async messageRun(message: Message, args: Args) {
 		const piece = await args.pick('piece');
 
 		piece.enabled = true;

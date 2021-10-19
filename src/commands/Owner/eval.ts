@@ -17,7 +17,7 @@ import { WoofCommand } from '../../lib/Structures/WoofCommand';
 	requiredClientPermissions: ['SEND_MESSAGES']
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message, args: Args) {
+	public async messageRun(message: Message, args: Args) {
 		const code = await args.rest('string');
 
 		const { result, success, type, time } = await this.eval(message, code, {

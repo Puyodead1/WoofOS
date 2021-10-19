@@ -12,7 +12,7 @@ import { WoofEmbed } from '../../utils';
 	aliases: ['add']
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		const embed = WoofEmbed(message, 'Invite Woof').setDescription(
 			`Want my sweet features on your own server? [**Invite me**](${BRANDING_SERVER})`
 		);

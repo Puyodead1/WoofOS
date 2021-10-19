@@ -24,17 +24,17 @@ export class UserCommand extends WoofCommand {
 	}
 
 	@RequireUserInVoiceChannel()
-	public async run(message: GuildMessage, args: Args, context: WoofCommand.Context) {
+	public async messageRun(message: GuildMessage, args: Args, context: WoofCommand.Context) {
 		const audio = getAudio(message.guild);
 
 		if (!audio.voiceChannelId) {
-			await this.join.run(message, args, context);
+			await this.join.messageRun(message, args, context);
 		}
 
 		await reply(message, 'Please wait...');
 
 		if (!args.finished) {
-			await this.add.run(message, args, context);
+			await this.add.messageRun(message, args, context);
 			if (audio.playing) return;
 		}
 

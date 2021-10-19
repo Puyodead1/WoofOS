@@ -12,7 +12,7 @@ import { WoofCommand } from '../../lib/Structures/WoofCommand';
 	aliases: ['r']
 })
 export class UserCommand extends WoofCommand {
-	public async run(message: Message, args: Args) {
+	public async messageRun(message: Message, args: Args) {
 		const content = await this.reloadAny(args);
 		return reply(message, content);
 	}
