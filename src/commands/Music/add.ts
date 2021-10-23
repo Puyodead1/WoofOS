@@ -6,7 +6,7 @@ import { MessageEmbed } from 'discord.js';
 import { RequireUserInVoiceChannel } from '../../lib/Music/Decorators';
 import type { GuildMessage } from '../../lib/types/Discord';
 import { WoofCommand } from '../../lib/Structures/WoofCommand';
-import { getAudio, reduceLeft } from '../../utils';
+import { getAudio } from '../../utils';
 
 @ApplyOptions<CommandOptions>({
 	description: '',

@@ -5,6 +5,7 @@ import { RequireBotInVoiceChannel, RequireDj } from '../../lib/Music/Decorators'
 import type { GuildMessage } from '../../lib/types/Discord';
 import { WoofCommand } from '../../lib/Structures/WoofCommand';
 import { getAudio } from '../../utils';
+import { WoofEqualizerBand } from '../../lib/Enums';
 
 @ApplyOptions<CommandOptions>({
 	description: '',
@@ -16,12 +17,12 @@ export class UserCommand extends WoofCommand {
 	@RequireBotInVoiceChannel()
 	@RequireDj()
 	public async messageRun(message: GuildMessage, args: Args) {
-		const band = await args.pick('eqPreset');
-		if (!band) return reply(message, 'Invalid EQ Preset');
+		const band = await args.pick('eqPreset').catch(() => null);
+		if (!band) return reply(message, `Invalid EQ Preset! Valid presets are: ${Object.keys(WoofEqualizerBand).map((x) => `\`${x}\``)}`);
 		const audio = getAudio(message.guild);
 
 		await audio.player.setEqualizer(band);
 
-		return reply(message, 'commands/music:setBass');
+		return reply(message, `Bass has been set to \`${band}\``);
 	}
 }

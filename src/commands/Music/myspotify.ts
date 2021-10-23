@@ -1,6 +1,6 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
-import { reply, send } from '@skyra/editable-commands';
+import { reply } from '@skyra/editable-commands';
 import { EMOJIS } from '../../config';
 import { WoofCommand } from '../../lib/Structures/WoofCommand';
 import type { GuildMessage } from '../../lib/types/Discord';
