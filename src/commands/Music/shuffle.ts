@@ -19,6 +19,6 @@ export class UserCommand extends WoofCommand {
 		audio.shuffleTracks();
 
 		const amount = audio.count();
-		await reply(message, `🔹 Shuffled **${amount}** songs.`);
+		await reply(message, `:small_blue_diamond: Shuffled **${amount}** songs.`);
 	}
 }

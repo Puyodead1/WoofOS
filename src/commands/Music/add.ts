@@ -19,7 +19,7 @@ export class UserCommand extends WoofCommand {
 	@RequireUserInVoiceChannel()
 	public async messageRun(message: GuildMessage, args: Args) {
 		const songs = await args.rest('song');
-		if (!songs || !songs.length) return reply(message, "Oops, There weren't any results :zzz:");
+		if (!songs || !songs.length) return reply(message, ":zzz: Oops, There weren't any results.");
 
 		const tracks = songs.map((track) => ({ author: message.author.id, track }));
 		const audio = await getAudio(message.guild);

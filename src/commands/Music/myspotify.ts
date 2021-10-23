@@ -17,14 +17,15 @@ export class UserCommand extends WoofCommand {
 		const { users } = this.container.db;
 
 		const user = await users.ensure(message.author.id);
-		if (!user.spotify) return reply(message, `You haven't connected a Spotify account yet! ${EMOJIS.SPOTIFY}`);
+		if (!user.spotify) return reply(message, `${EMOJIS.SPOTIFY} You haven't connected a Spotify account yet!`);
 
 		const msg = await reply(message, `${EMOJIS.SPOTIFY} Loading your playlists...`);
 
 		const playlists = await this.container.stores.get('platforms').get('spotify')!.getUserPlaylists(user.spotify);
-		if (!playlists) return reply(message, ":zzz: Uh oh! Either you don't have any playlists or something went wrong while trying to load them!");
+		if (!playlists)
+			return reply(message, ":octagonal_sign: Uh oh! Either you don't have any playlists or something went wrong while trying to load them!");
 
-		if (!playlists.items.length) return reply(message, "Looks like you don't have any playlists.. Maybe they are private?");
+		if (!playlists.items.length) return reply(message, ":thinking: Looks like you don't have any playlists.. Maybe they are private?");
 
 		const pages: MessageEmbed[] = [];
 		for (const playlist of playlists.items) {

@@ -25,6 +25,6 @@ export class UserCommand extends WoofCommand {
 		await audio.player.join(newChannel!.id, { deaf: true, mute: false });
 		// FIXME: bot won't resume until the user runs resume command, if we put resume here, it still won't work until the user pauses and then resumes
 
-		return reply(message, `I have moved from ${currentChannel} to ${message.member.voice.channel}`);
+		return reply(message, `:white_check_mark: I have moved from ${currentChannel} to ${message.member.voice.channel}`);
 	}
 }

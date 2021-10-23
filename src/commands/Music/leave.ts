@@ -22,6 +22,6 @@ export class UserCommand extends WoofCommand {
 		await audio.stop();
 		await audio.leave();
 
-		return reply(message, 'commands/music:leaveSuccess');
+		return reply(message, ':white_check_mark: I have left the channel!');
 	}
 }

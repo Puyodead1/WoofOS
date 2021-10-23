@@ -40,11 +40,11 @@ export class UserCommand extends WoofCommand {
 
 		const current = await audio.getCurrentTrack();
 		if (!current && audio.count() === 0) {
-			return reply(message, 'The queue is empty!');
+			return reply(message, ':zzz: The queue is empty!');
 		}
 
 		if (audio.playing) {
-			return reply(message, 'The queue has been resumed!');
+			return reply(message, ':white_check_mark: The queue has been resumed!');
 		}
 
 		if (current && audio.paused) {

@@ -20,6 +20,6 @@ export class UserCommand extends WoofCommand {
 	public async messageRun(message: GuildMessage) {
 		await getAudio(message.guild).pause();
 
-		return reply(message, '⏸️ The queue has been paused!');
+		return reply(message, ':pause_button: The queue has been paused!');
 	}
 }

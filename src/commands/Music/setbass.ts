@@ -18,11 +18,12 @@ export class UserCommand extends WoofCommand {
 	@RequireDj()
 	public async messageRun(message: GuildMessage, args: Args) {
 		const band = await args.pick('eqPreset').catch(() => null);
-		if (!band) return reply(message, `Invalid EQ Preset! Valid presets are: ${Object.keys(WoofEqualizerBand).map((x) => `\`${x}\``)}`);
+		if (!band)
+			return reply(message, `:octagonal_sign: Invalid EQ Preset! Valid presets are: ${Object.keys(WoofEqualizerBand).map((x) => `\`${x}\``)}`);
 		const audio = getAudio(message.guild);
 
 		await audio.player.setEqualizer(band);
 
-		return reply(message, `Bass has been set to \`${band}\``);
+		return reply(message, `:white_check_mark: Bass has been set to \`${band}\``);
 	}
 }
