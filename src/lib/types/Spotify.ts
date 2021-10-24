@@ -1,3 +1,5 @@
+export type TrackRestrictionReason = 'explicit' | 'product' | 'market';
+
 export interface SpotifyPublicUserObject {
 	kind: SpotifyTaggedUnions.SPOTIFY_PUBLIC_UESR_OBJECT;
 	display_name: string;
@@ -78,13 +80,71 @@ export interface SpotifyTokenResponseObject {
 	expires_in: number;
 }
 
+export interface LinkedTrackObject {
+	external_urls: {
+		spotify: string;
+	};
+	href: string;
+	id: string;
+	type: string;
+	uri: string;
+}
+
+export interface TrackRestrictionObject {
+	reason: TrackRestrictionReason;
+}
+
+export interface SpotifySimplifiedArtistObject {
+	kind: SpotifyTaggedUnions.SPOTIFY_SIMPLIFIED_ARTIST_OBJECT;
+	external_urls: {
+		spotify: string;
+	};
+	href: string;
+	id: string;
+	name: string;
+	type: string;
+	uri: string;
+}
+
+export interface SpotifySimplifiedTrackObject {
+	kind: SpotifyTaggedUnions.SPOTIFY_SIMPLIFIED_TRACK_OBJECT;
+	artists: SpotifySimplifiedArtistObject[];
+	available_markets: string[];
+	disc_number: number;
+	duration_ms: number;
+	explicit: boolean;
+	external_urls: {
+		spotify: string;
+	};
+	href: string;
+	id: string;
+	is_local: boolean;
+	is_playable: boolean;
+	linked_from: LinkedTrackObject;
+	name: string;
+	preview_url: string;
+	restrictions: TrackRestrictionObject;
+	track_number: number;
+	type: 'track';
+	uri: string;
+}
+
+export interface SpotifyPlaylistItemsResponseObject {
+	kind: SpotifyTaggedUnions.SPOTIFY_PLAYLIST_ITEMS_RESPONSE_OBJECT;
+	href: string;
+	items: SpotifySimplifiedTrackObject[];
+}
+
 export enum SpotifyTaggedUnions {
 	SPOTIFY_TOKEN_RESPONSE_OBJECT = 'SpotifyTokenResponseObject',
 	SPOTIFY_USER_PLAYLISTS_OBJECT = 'SpotifyUserPlaylistsObject',
 	SPOTIFY_ERROR_OBJECT = 'SpotifyErrorObject',
 	SPOTIFY_AUTH_ERROR_OBJECT = 'SpotifyAuthErrorObject',
 	SPOTIFY_SIMPLIFIED_PLAYLIST_OBJECT = 'SpotifySimplifiedPlaylistObject',
-	SPOTIFY_PUBLIC_UESR_OBJECT = 'SpotifyPublicUserObject'
+	SPOTIFY_PUBLIC_UESR_OBJECT = 'SpotifyPublicUserObject',
+	SPOTIFY_SIMPLIFIED_TRACK_OBJECT = 'SpotifySimplifiedTrackObject',
+	SPOTIFY_SIMPLIFIED_ARTIST_OBJECT = 'SpotifySimplifiedArtistObject',
+	SPOTIFY_PLAYLIST_ITEMS_RESPONSE_OBJECT = 'SpotifyPlaylistItemsResponseObject'
 }
 
 export type SpotifyUserPlaylistsJSONResponse = SpotifyUserPlaylistsObject;
@@ -94,5 +154,6 @@ export type SpotifyTokenJSONResponse = SpotifyTokenResponseObject;
 export const SpotifyAPIRoutes = {
 	TOKEN: 'https://accounts.spotify.com/api/token',
 	USER: (id: string) => `https://api.spotify.com/v1/users/${id}`,
-	USER_PLAYLISTS: (id: string) => `https://api.spotify.com/v1/users/${id}/playlists`
+	USER_PLAYLISTS: (id: string) => `https://api.spotify.com/v1/users/${id}/playlists`,
+	PLAYLIST_TRAKS: (id: string) => `https://api.spotify.com/v1/playlists/${id}/tracks`
 };

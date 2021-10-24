@@ -5,7 +5,6 @@ import { EMOJIS } from '../../config';
 import { WoofCommand } from '../../lib/Structures/WoofCommand';
 import type { GuildMessage } from '../../lib/types/Discord';
 import { MessageActionRow, MessageButton, MessageComponentInteraction, MessageEmbed, MessageSelectMenu, SelectMenuInteraction } from 'discord.js';
-import { inspect } from 'util';
 
 @ApplyOptions<CommandOptions>({
 	description: '',
@@ -149,8 +148,5 @@ export class UserCommand extends WoofCommand {
 		});
 
 		return null;
-
-		// await paginatedComponentMessage(msg, pages, [prevButton, nextButton, queueButton]);
-		// return null;
 	}
 }
