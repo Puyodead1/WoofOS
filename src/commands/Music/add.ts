@@ -1,4 +1,5 @@
 import { ApplyOptions } from '@sapphire/decorators';
+import { container } from '@sapphire/pieces';
 import { Args, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { DurationFormatter } from '@sapphire/time-utilities';
 import { reply } from '@skyra/editable-commands';
@@ -13,7 +14,8 @@ import { getAudio } from '../../utils';
 	requiredClientPermissions: ['SEND_MESSAGES'],
 	aliases: [],
 	runIn: [CommandOptionsRunTypeEnum.GuildText],
-	flags: ['sc', 'soundcloud', 'shuffle', 's']
+	flags: ['sc', 'soundcloud', 'shuffle', 's'],
+	enabled: container.client.MUSIC_ENABLED
 })
 export class UserCommand extends WoofCommand {
 	@RequireUserInVoiceChannel()

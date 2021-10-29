@@ -1,4 +1,4 @@
-import { SapphireClient, container, StoreRegistryEntries } from '@sapphire/framework';
+import { SapphireClient, container } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
 import type { PlatformStore } from 'lib/database/settings/structures/PlatformStore';
 import type { TaskStore } from 'lib/database/settings/structures/TaskStore';
@@ -10,6 +10,7 @@ import { QueueClient } from '../Music/QueueClient';
 import { ScheduleManager } from './ScheduleManager';
 
 export default class WoofClient extends SapphireClient {
+	public MUSIC_ENABLED = true;
 	public voteMutes = new Set<string>();
 	public readonly music: QueueClient;
 
@@ -33,6 +34,7 @@ declare module 'discord.js' {
 	}
 
 	interface Client {
+		MUSIC_ENABLED: boolean;
 		voteMutes: Set<string>;
 		music: QueueClient;
 	}

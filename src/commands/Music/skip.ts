@@ -1,4 +1,5 @@
 import { ApplyOptions } from '@sapphire/decorators';
+import { container } from '@sapphire/pieces';
 import { Args, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { WoofCommand } from '../../lib/Structures/WoofCommand';
 import { RequireSameVoiceChannel, RequireSongPresent } from '../../lib/Music/Decorators';
@@ -14,7 +15,8 @@ const flags = ['force'];
 	requiredClientPermissions: ['SEND_MESSAGES'],
 	aliases: [],
 	runIn: [CommandOptionsRunTypeEnum.GuildText],
-	flags
+	flags,
+	enabled: container.client.MUSIC_ENABLED
 })
 export class UserCommand extends WoofCommand {
 	@RequireSongPresent()

@@ -1,4 +1,5 @@
 import { ApplyOptions } from '@sapphire/decorators';
+import { container } from '@sapphire/pieces';
 import { CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { reply } from '@skyra/editable-commands';
 import { RequireBotInVoiceChannel, RequireDj, RequireSameVoiceChannel, RequireUserInVoiceChannel } from '../../lib/Music/Decorators';
@@ -10,7 +11,8 @@ import { getAudio } from '../../utils';
 	description: '',
 	requiredClientPermissions: ['SEND_MESSAGES'],
 	aliases: [],
-	runIn: [CommandOptionsRunTypeEnum.GuildText]
+	runIn: [CommandOptionsRunTypeEnum.GuildText],
+	enabled: container.client.MUSIC_ENABLED
 })
 export class UserCommand extends WoofCommand {
 	@RequireBotInVoiceChannel()

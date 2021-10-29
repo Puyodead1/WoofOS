@@ -1,4 +1,5 @@
 import { ApplyOptions } from '@sapphire/decorators';
+import { container } from '@sapphire/pieces';
 import { Args, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { reply } from '@skyra/editable-commands';
 import { RequireBotInVoiceChannel, RequireDj } from '../../lib/Music/Decorators';
@@ -11,7 +12,8 @@ import { WoofEqualizerBand } from '../../lib/Enums';
 	description: '',
 	requiredClientPermissions: ['SEND_MESSAGES'],
 	aliases: ['sb', 'bb'],
-	runIn: [CommandOptionsRunTypeEnum.GuildText]
+	runIn: [CommandOptionsRunTypeEnum.GuildText],
+	enabled: container.client.MUSIC_ENABLED
 })
 export class UserCommand extends WoofCommand {
 	@RequireBotInVoiceChannel()

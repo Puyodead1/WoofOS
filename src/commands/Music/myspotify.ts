@@ -1,4 +1,5 @@
 import { ApplyOptions } from '@sapphire/decorators';
+import { container } from '@sapphire/pieces';
 import { CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { reply } from '@skyra/editable-commands';
 import { EMOJIS } from '../../config';
@@ -10,7 +11,8 @@ import { MessageActionRow, MessageButton, MessageComponentInteraction, MessageEm
 	description: '',
 	requiredClientPermissions: ['SEND_MESSAGES'],
 	runIn: CommandOptionsRunTypeEnum.GuildText,
-	aliases: ['ms', 'mys']
+	aliases: ['ms', 'mys'],
+	enabled: container.client.MUSIC_ENABLED
 })
 export class UserCommand extends WoofCommand {
 	public async messageRun(message: GuildMessage) {

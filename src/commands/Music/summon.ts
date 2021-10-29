@@ -1,4 +1,5 @@
 import { ApplyOptions } from '@sapphire/decorators';
+import { container } from '@sapphire/pieces';
 import { CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { Permissions } from 'discord.js';
 import { RequireUserInVoiceChannel } from '../../lib/Music/Decorators';
@@ -13,7 +14,8 @@ import { reply } from '@sapphire/plugin-editable-commands';
 	description: '',
 	requiredClientPermissions: ['SEND_MESSAGES'],
 	aliases: ['join', 'connect'],
-	runIn: [CommandOptionsRunTypeEnum.GuildText]
+	runIn: [CommandOptionsRunTypeEnum.GuildText],
+	enabled: container.client.MUSIC_ENABLED
 })
 export class UserCommand extends WoofCommand {
 	@RequireUserInVoiceChannel()
