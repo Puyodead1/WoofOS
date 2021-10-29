@@ -94,13 +94,14 @@
     "@sapphire/utilities" "^3.0.4"
 
 "@sapphire/discord.js-utilities@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/discord.js-utilities/-/discord.js-utilities-4.0.0.tgz#a4163c1e7e8e634f282678ff4c18322f608848de"
-  integrity sha512-eG1BsujXpVVbGaGo2iwOuQVpcfhRbWsiCKY4DDMERMShH2TMqPN7mBi/NdxdetCgB3NmVa3BwF6W7e5Hmjdeew==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@sapphire/discord.js-utilities/-/discord.js-utilities-4.0.1.tgz#07a309e4950fb92da6bb329ef89eaecb2365ff92"
+  integrity sha512-9Rtz/DuXbaWPHoh2l7hEQjB4ruw57H7qYcI9Q9QYko0w8QX6Exx1vnHglKzhaKbJ5qA53HUZSRMqm9DdG3hasA==
   dependencies:
     "@sapphire/discord-utilities" "^2.2.2"
-    "@sapphire/time-utilities" "^1.4.5"
-    "@sapphire/utilities" "^3.0.5"
+    "@sapphire/time-utilities" "^1.4.6"
+    "@sapphire/utilities" "^3.0.6"
+    tslib "^2.3.1"
 
 "@sapphire/fetch@^2.0.2":
   version "2.0.2"
@@ -188,7 +189,7 @@
   dependencies:
     tslib "^2.3.1"
 
-"@sapphire/time-utilities@^1.4.4", "@sapphire/time-utilities@^1.4.5", "@sapphire/time-utilities@^1.4.6":
+"@sapphire/time-utilities@^1.4.4", "@sapphire/time-utilities@^1.4.6":
   version "1.4.6"
   resolved "https://registry.yarnpkg.com/@sapphire/time-utilities/-/time-utilities-1.4.6.tgz#100727981554d4e0f3983c46277e88810835ae7f"
   integrity sha512-hFT+LfhjtRS0BMjE/ZYlNNkBXE2cFuULljrFHI5+iR8KinLc46U+Ix0F/iK6XWXLmvcQ80QSA1FuPEkjDiTiAw==
@@ -212,12 +213,7 @@
     nan "^2.15.0"
     tslib "^2.3.1"
 
-"@sapphire/utilities@^3.0.3", "@sapphire/utilities@^3.0.4", "@sapphire/utilities@^3.0.5":
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-3.0.6.tgz#ba14fcd6ca19a2665b78335d28477241f99494ea"
-  integrity sha512-veCUmM1Q/zSscv223IveJBaQ/HlENycsmmLnakL79EWpAFnnayycrsa00rMDRUfqgizTJ2rsqoH0JVqqRbxKiA==
-
-"@sapphire/utilities@^3.0.6":
+"@sapphire/utilities@^3.0.3", "@sapphire/utilities@^3.0.4", "@sapphire/utilities@^3.0.6":
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-3.0.6.tgz#ba14fcd6ca19a2665b78335d28477241f99494ea"
   integrity sha512-veCUmM1Q/zSscv223IveJBaQ/HlENycsmmLnakL79EWpAFnnayycrsa00rMDRUfqgizTJ2rsqoH0JVqqRbxKiA==
