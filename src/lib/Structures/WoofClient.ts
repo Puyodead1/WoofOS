@@ -2,12 +2,12 @@ import { SapphireClient, container } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
 import type { PlatformStore } from 'lib/database/settings/structures/PlatformStore';
 import type { TaskStore } from 'lib/database/settings/structures/TaskStore';
-import type { SpotifyTokenJSONResponse } from 'lib/types/Spotify';
-import { MUSIC_OPTIONS } from '../../config';
+import { MUSIC_OPTIONS, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } from '../../config';
 import { SettingsManager } from '../database/settings/SettingsManager';
 import type { DbSet } from '../database/utils/DbSet';
 import { QueueClient } from '../Music/QueueClient';
 import { ScheduleManager } from './ScheduleManager';
+import SpotifyWebApi from 'spotify-web-api-node';
 
 export default class WoofClient extends SapphireClient {
 	public MUSIC_ENABLED = true;
@@ -21,10 +21,26 @@ export default class WoofClient extends SapphireClient {
 			return Promise.resolve(guild?.shard.send(packet));
 		});
 
+		this.spotifyAPI = new SpotifyWebApi({
+			clientId: SPOTIFY_CLIENT_ID,
+			clientSecret: SPOTIFY_CLIENT_SECRET
+		});
+
 		container.settings = new SettingsManager(this);
 		container.client = this;
-		container.SPOTIFY_TOKEN = null;
 		container.schedule = new ScheduleManager();
+	}
+
+	setupSpotify(): Promise<number> {
+		return new Promise((resolve, reject) => {
+			this.spotifyAPI
+				.clientCredentialsGrant()
+				.then((res) => {
+					this.spotifyAPI.setAccessToken(res.body.access_token);
+					resolve(res.body.expires_in);
+				})
+				.catch(reject);
+		});
 	}
 }
 
@@ -37,6 +53,8 @@ declare module 'discord.js' {
 		MUSIC_ENABLED: boolean;
 		voteMutes: Set<string>;
 		music: QueueClient;
+		spotifyAPI: SpotifyWebApi;
+		setupSpotify(): Promise<number>;
 	}
 }
 
@@ -52,6 +70,5 @@ declare module '@sapphire/pieces' {
 		settings: SettingsManager;
 		db: DbSet;
 		schedule: ScheduleManager;
-		SPOTIFY_TOKEN: SpotifyTokenJSONResponse | null;
 	}
 }

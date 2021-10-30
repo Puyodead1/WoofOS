@@ -6,6 +6,7 @@ import { EMOJIS } from '../../config';
 import { WoofCommand } from '../../lib/Structures/WoofCommand';
 import type { GuildMessage } from '../../lib/types/Discord';
 import { MessageActionRow, MessageButton, MessageComponentInteraction, MessageEmbed, MessageSelectMenu, SelectMenuInteraction } from 'discord.js';
+import { DurationFormatter } from '@sapphire/time-utilities';
 
 @ApplyOptions<CommandOptions>({
 	description: '',
@@ -21,9 +22,9 @@ export class UserCommand extends WoofCommand {
 		const user = await users.ensure(message.author.id);
 		if (!user.spotify) return reply(message, `${EMOJIS.SPOTIFY} You haven't connected a Spotify account yet!`);
 
-		const msg = await reply(message, `${EMOJIS.SPOTIFY} Loading your playlists...`);
+		const msg = await reply(message, `${EMOJIS.SPOTIFY} Loading your playlists, this might take a minute...`);
 
-		const playlists = await this.container.stores.get('platforms').get('spotify')!.getUserPlaylists(user.spotify);
+		const { body: playlists } = await this.container.client.spotifyAPI.getUserPlaylists(user.spotify);
 		if (!playlists)
 			return reply(message, ":octagonal_sign: Uh oh! Either you don't have any playlists or something went wrong while trying to load them!");
 
@@ -31,32 +32,28 @@ export class UserCommand extends WoofCommand {
 
 		const pages: { playlistId: string; pageNumber: number; embed: MessageEmbed }[] = [];
 		for (const playlist of playlists.items) {
+			// const { body: tracks } = await this.container.client.spotifyAPI.getPlaylistTracks(playlist.id);
 			const description = playlist.description
 				? playlist.description.length > 4096
 					? playlist.description.substring(0, 4093) + '...'
 					: playlist.description
 				: 'No Description';
-			pages.push(
-				{
-					playlistId: playlist.id,
-					pageNumber: pages.length,
-					embed: new MessageEmbed()
-						.setAuthor(
-							`Your Spotify Playlists`,
-							this.container.client.user!.displayAvatarURL({ dynamic: true, format: 'png', size: 2048 })
-						)
-						.setTimestamp()
-						.setTitle(playlist.name.length ? playlist.name : 'No Title')
-						.setDescription(description)
-						.setThumbnail(playlist.images.length ? playlist.images[0].url : '')
-						.setURL(playlist.href)
-						.addField('Owner', playlist.owner.display_name, true)
-						.addField('Tracks', playlist.tracks.total.toString(), true)
-						.addField('Public', playlist.public ? 'Yes' : 'No' ?? 'Unknown', true)
-						.addField('Collaborative', playlist.collaborative ? 'Yes' : 'No' ?? 'Unknown', true)
-				}
-				// TODO: get tracks and show the playlists total duration
-			);
+			pages.push({
+				playlistId: playlist.id,
+				pageNumber: pages.length,
+				embed: new MessageEmbed()
+					.setAuthor(`Your Spotify Playlists`, this.container.client.user!.displayAvatarURL({ dynamic: true, format: 'png', size: 2048 }))
+					.setTimestamp()
+					.setTitle(playlist.name ?? 'No Title')
+					.setDescription(description)
+					.setThumbnail(playlist.images.length ? playlist.images[0].url : '')
+					.setURL(playlist.href)
+					.addField('Owner', playlist.owner.display_name ?? 'N/A', true)
+					.addField('Tracks', playlist.tracks.total.toString(), true)
+					.addField('Public', playlist.public ? 'Yes' : 'No' ?? 'Unknown', true)
+					.addField('Collaborative', playlist.collaborative ? 'Yes' : 'No' ?? 'Unknown', true)
+				// .addField('Duration', new DurationFormatter().format(tracks.items.reduce((a, b) => a + b.track.duration_ms, 0)), true)
+			});
 		}
 
 		const buildSelectMenuOptions = (page?: number) => {

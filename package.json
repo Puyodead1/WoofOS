@@ -44,6 +44,7 @@
 		"@sapphire/utilities": "^3.0.4",
 		"@skyra/audio": "^2.0.0",
 		"@types/humanize-duration": "^3.25.1",
+		"@types/spotify-web-api-node": "^5.0.3",
 		"async-rwlock": "^1.1.1",
 		"better-logging": "^4.5.1",
 		"binarytf": "^2.0.0",
@@ -57,6 +58,7 @@
 		"mongodb": "^3.7.2",
 		"rand-token": "^1.0.1",
 		"simple-youtube-api": "^5.2.1",
+		"spotify-web-api-node": "^5.0.2",
 		"typeorm": "^0.2.38",
 		"typeorm-naming-strategies": "^2.0.0"
 	},

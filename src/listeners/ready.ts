@@ -13,16 +13,15 @@ export class UserEvent extends Listener {
 		});
 	}
 
-	public run() {
+	public async run() {
 		this.printBanner();
 		this.printStoreDebugInformation();
 
 		const taskStore = this.container.client.stores.get('tasks');
+
 		if (taskStore.has('spotifyToken')) {
 			const task = taskStore.get('spotifyToken');
 			task!.run(null);
-
-			setInterval(() => task!.run(null), 3.54e6);
 		}
 	}
 
