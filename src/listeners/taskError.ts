@@ -1,6 +1,6 @@
 import { IPieceError, Listener } from '@sapphire/framework';
-import type { ScheduleEntity } from 'lib/database/entities/ScheduleEntity';
-import type { Task } from 'lib/database/settings/structures/Task';
+import type { ScheduleEntity } from '../lib/database/entities/ScheduleEntity';
+import type { Task } from '../lib/database/settings/structures/Task';
 
 export interface TaskErrorPayload extends IPieceError {
 	piece: Task;

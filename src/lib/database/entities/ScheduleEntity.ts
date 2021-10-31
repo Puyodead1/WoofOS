@@ -1,7 +1,7 @@
 import { container, Events } from '@sapphire/framework';
 import { Cron } from '@sapphire/time-utilities';
-import type { ScheduleManager } from 'lib/Structures/ScheduleManager';
-import { ValueTransformer, Entity, BaseEntity, PrimaryGeneratedColumn, Column, ObjectIdColumn } from 'typeorm';
+import { ValueTransformer, Entity, BaseEntity, Column, ObjectIdColumn } from 'typeorm';
+import type { ScheduleManager } from '../../Structures/ScheduleManager';
 
 const cronTransformer: ValueTransformer = {
 	from(value: string | null) {

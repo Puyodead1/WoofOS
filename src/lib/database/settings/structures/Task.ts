@@ -1,6 +1,6 @@
 import { Piece, PieceOptions } from '@sapphire/framework';
 import type { Awaitable } from 'discord.js';
-import type { PartialResponseValue } from 'lib/database/entities/ScheduleEntity';
+import type { PartialResponseValue } from '../../entities/ScheduleEntity';
 
 export abstract class Task extends Piece {
 	/**

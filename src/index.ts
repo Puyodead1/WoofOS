@@ -25,7 +25,7 @@ const options = program.opts();
 	try {
 		console.info('[Database] Connecting to database...');
 		container.db = await DbSet.connect();
-		console.info('[Database] Database connected');
+		console.info('[Database] Database connection successful');
 	} catch (e) {
 		console.error('[Database] Failed to connect to database! This is a fatal error, cannot continue!');
 		process.exit(1);
@@ -48,7 +48,7 @@ const options = program.opts();
 	try {
 		console.info('[Discord] Connecting to Discord...');
 		await client.login(TOKEN);
-		console.info('[Discord] Discord connected');
+		console.info('[Discord] Connected to Discord');
 	} catch (e) {
 		console.error('[Discord] Failed to connect to Discord! This is a fatal error, cannot continue!');
 		process.exit(1);

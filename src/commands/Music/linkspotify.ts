@@ -4,7 +4,7 @@ import { CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { reply } from '@skyra/editable-commands';
 import { BASE_URL, CLIENT_OPTIONS, EMOJIS } from '../../config';
 import { WoofCommand } from '../../lib/Structures/WoofCommand';
-import type { GuildMessage } from 'lib/types/Discord';
+import type { GuildMessage } from '../../lib/types/Discord';
 
 @ApplyOptions<CommandOptions>({
 	description: '',

@@ -6,7 +6,7 @@ import { EMOJIS } from '../../config';
 import { WoofCommand } from '../../lib/Structures/WoofCommand';
 import type { GuildMessage } from '../../lib/types/Discord';
 import { MessageActionRow, MessageButton, MessageComponentInteraction, MessageEmbed, MessageSelectMenu, SelectMenuInteraction } from 'discord.js';
-import { DurationFormatter } from '@sapphire/time-utilities';
+import { getUserRemainingEntries, handleYouTube } from '../../lib/Music/MusicUtils';
 
 @ApplyOptions<CommandOptions>({
 	description: '',
@@ -71,7 +71,12 @@ export class UserCommand extends WoofCommand {
 
 		const prevButton = new MessageButton().setCustomId('prevBtn').setLabel('Previous').setStyle('PRIMARY').setEmoji('⬅️');
 		const nextButton = new MessageButton().setCustomId('nextBtn').setLabel('Next').setStyle('PRIMARY').setEmoji('➡️');
-		const queueButton = new MessageButton().setCustomId('queueBtn').setLabel('Queue').setStyle('SECONDARY').setEmoji('▶️');
+		const queueButton = new MessageButton()
+			.setCustomId('queueBtn')
+			.setLabel('Queue')
+			.setStyle('SECONDARY')
+			.setEmoji('▶️')
+			.setDisabled(message.member.voice.channelId ? false : true);
 		const selectMenu = new MessageSelectMenu()
 			.setCustomId('playlistSelect')
 			.setPlaceholder('Quick Select Playlist')
@@ -114,15 +119,20 @@ export class UserCommand extends WoofCommand {
 			await i.deferUpdate();
 
 			if (i.customId === queueButton.customId) {
-				//
 				const playlist = playlists.items[page];
 				row.components.forEach((x) => x.setDisabled(true));
 				row2.components.forEach((x) => x.setDisabled(true));
 				await i.editReply({
-					content: `🔎   Loading your playlist \`${playlist.name.length ? playlist.name : playlist.id}\`  −  This may take a minute..`,
+					content: `🔎   Loading playlist \`${playlist.name.length ? playlist.name : playlist.id}\`  −  This may take a minute..`,
 					embeds: [],
 					components: [row.setComponents((row.components[0] as MessageSelectMenu).setOptions(buildSelectMenuOptions(page))), row2]
 				});
+				const { body: tracks } = await this.container.client.spotifyAPI.getPlaylistTracks(playlist.id);
+				for (const item of tracks.items) {
+					const remainingUserEntries = await getUserRemainingEntries(message);
+					const searchResults = await handleYouTube(message, remainingUserEntries, item.track.name);
+					console.log(searchResults);
+				}
 				collector.stop('queue');
 			} else {
 				await i.editReply({

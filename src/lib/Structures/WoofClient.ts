@@ -1,13 +1,13 @@
 import { SapphireClient, container } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
-import type { PlatformStore } from 'lib/database/settings/structures/PlatformStore';
-import type { TaskStore } from 'lib/database/settings/structures/TaskStore';
 import { MUSIC_OPTIONS, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } from '../../config';
 import { SettingsManager } from '../database/settings/SettingsManager';
 import type { DbSet } from '../database/utils/DbSet';
 import { QueueClient } from '../Music/QueueClient';
 import { ScheduleManager } from './ScheduleManager';
 import SpotifyWebApi from 'spotify-web-api-node';
+import type { PlatformStore } from '../database/settings/structures/PlatformStore';
+import type { TaskStore } from '../database/settings/structures/TaskStore';
 
 export default class WoofClient extends SapphireClient {
 	public MUSIC_ENABLED = true;
