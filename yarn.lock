@@ -26,9 +26,9 @@
   integrity sha512-PVrEJH+V6Ob0OwfagYQ/57kwt/HNEJxt5jqY4P+S3st9y29t9iokdnGMQoJXG5VEMAQIPbzu9Snw1F6yE8PdLA==
 
 "@discordjs/collection@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@discordjs/collection/-/collection-0.3.1.tgz#4809ab8def913d33a9934a949eb846e8a9c97ce5"
-  integrity sha512-82/f+Off4JHmWKClnAomb8I3uDIfvvckkfF4HaqSKs3KKjPHhSBw3UuPjQYLpuB6Nw3vIt8z8nt6jqlB9ehudw==
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@discordjs/collection/-/collection-0.3.2.tgz#3c271dd8a93dad89b186d330e24dbceaab58424a"
+  integrity sha512-dMjLl60b2DMqObbH1MQZKePgWhsNe49XkKBZ0W5Acl5uVV43SN414i2QfZwRI7dXAqIn8pEWD2+XXQFn9KWxqg==
 
 "@discordjs/form-data@^3.0.1":
   version "3.0.1"
