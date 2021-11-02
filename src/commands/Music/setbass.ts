@@ -24,8 +24,8 @@ export class UserCommand extends WoofCommand {
 			return reply(message, `:octagonal_sign: Invalid EQ Preset! Valid presets are: ${Object.keys(WoofEqualizerBand).map((x) => `\`${x}\``)}`);
 		const audio = getAudio(message.guild);
 
-		await audio.player.setEqualizer(band);
+		await audio.player.setEqualizer(band.bands);
 
-		return reply(message, `:white_check_mark: Bass has been set to \`${band}\``);
+		return reply(message, `:white_check_mark: Bass has been set to \`${band.name}\``);
 	}
 }

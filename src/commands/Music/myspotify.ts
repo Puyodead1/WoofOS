@@ -1,12 +1,14 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { container } from '@sapphire/pieces';
-import { CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
+import { Args, CommandContext, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { reply } from '@skyra/editable-commands';
 import { EMOJIS } from '../../config';
 import { WoofCommand } from '../../lib/Structures/WoofCommand';
 import type { GuildMessage } from '../../lib/types/Discord';
 import { MessageActionRow, MessageButton, MessageComponentInteraction, MessageEmbed, MessageSelectMenu, SelectMenuInteraction } from 'discord.js';
 import { getUserRemainingEntries, handleYouTube } from '../../lib/Music/MusicUtils';
+import { getAudio } from '../../utils';
+import type { QueueEntry } from '../../lib/Music/Queue';
 
 @ApplyOptions<CommandOptions>({
 	description: '',
@@ -16,7 +18,11 @@ import { getUserRemainingEntries, handleYouTube } from '../../lib/Music/MusicUti
 	enabled: container.client.MUSIC_ENABLED
 })
 export class UserCommand extends WoofCommand {
-	public async messageRun(message: GuildMessage) {
+	private get join(): WoofCommand {
+		return this.store.get('summon') as WoofCommand;
+	}
+
+	public async messageRun(message: GuildMessage, args: Args, context: CommandContext) {
 		const { users } = this.container.db;
 
 		const user = await users.ensure(message.author.id);
@@ -119,21 +125,49 @@ export class UserCommand extends WoofCommand {
 			await i.deferUpdate();
 
 			if (i.customId === queueButton.customId) {
+				collector.stop('queue');
+				const audio = await getAudio(message.guild);
+
+				// ensure the bot is in the channel
+				if (!audio.voiceChannelId) {
+					await this.join.messageRun(message, args, context);
+				}
+
 				const playlist = playlists.items[page];
 				row.components.forEach((x) => x.setDisabled(true));
 				row2.components.forEach((x) => x.setDisabled(true));
+
 				await i.editReply({
 					content: `🔎   Loading playlist \`${playlist.name.length ? playlist.name : playlist.id}\`  −  This may take a minute..`,
-					embeds: [],
 					components: [row.setComponents((row.components[0] as MessageSelectMenu).setOptions(buildSelectMenuOptions(page))), row2]
 				});
+
+				// get the tracks of the playlist from spotify
 				const { body: tracks } = await this.container.client.spotifyAPI.getPlaylistTracks(playlist.id);
+
+				// get all the tracks from youtube
+				const ytTracks: QueueEntry[] = [];
+				const failedItems = [];
 				for (const item of tracks.items) {
 					const remainingUserEntries = await getUserRemainingEntries(message);
-					const searchResults = await handleYouTube(message, remainingUserEntries, item.track.name);
-					console.log(searchResults);
+					const searchResults = await handleYouTube(message, remainingUserEntries, `${item.track.name} ${item.track.album.name}`);
+					if (searchResults) {
+						ytTracks.push({
+							author: message.author.id,
+							track: searchResults[0]
+						});
+					} else {
+						failedItems.push(item.track.name);
+					}
 				}
-				collector.stop('queue');
+
+				audio.add(...ytTracks);
+				await i.editReply({
+					content: `:white_check_mark: Queued \`${ytTracks.length}\` tracks! ${
+						failedItems.length ? `Unable to load \`${failedItems.length}\` tracks.` : ''
+					}`
+				});
+				await audio.start();
 			} else {
 				await i.editReply({
 					content: null,

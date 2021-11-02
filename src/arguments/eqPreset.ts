@@ -1,10 +1,9 @@
 import { Argument, ArgumentContext } from '@sapphire/framework';
-import type { EqualizerBand } from '@skyra/audio';
-import { WoofEqualizerBands } from '../config';
+import { WoofEqualizerBands, WoofEqualizerBand } from '../config';
 
-export class UserArgument extends Argument<EqualizerBand[]> {
+export class UserArgument extends Argument<WoofEqualizerBand> {
 	public async run(parameter: string, context: ArgumentContext) {
-		const band = WoofEqualizerBands[parameter.toLowerCase()];
+		const band = WoofEqualizerBands.find((x) => x.name.toLowerCase() === parameter.toLowerCase());
 		if (band) return this.ok(band);
 		return this.error({ parameter, identifier: 'arguments:eqPreset', context });
 	}

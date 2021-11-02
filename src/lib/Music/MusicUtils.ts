@@ -84,12 +84,8 @@ export async function handleURL(message: GuildMessage, remaining: number, argume
  * - `null` if neither `--sc` nor `--soundcloud` flags were provided.
  * - `Track[]` otherwise.
  */
-export async function handleSoundCloud(message: GuildMessage, remaining: number, argument: string, args: Args): Promise<Track[] | null> {
-	if (args.getFlags('sc', 'soundcloud')) {
-		return downloadResults(message, remaining, `scsearch: ${argument}`);
-	}
-
-	return Promise.resolve(null);
+export async function handleSoundCloud(message: GuildMessage, remaining: number, argument: string): Promise<Track[] | null> {
+	return downloadResults(message, remaining, `scsearch: ${argument}`);
 }
 
 /**
