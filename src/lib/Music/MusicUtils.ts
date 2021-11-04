@@ -99,6 +99,14 @@ export async function handleYouTube(message: GuildMessage, remaining: number, ar
 	return downloadResults(message, remaining, `ytsearch: ${arg}`);
 }
 
+export async function handleSpotifySong(message: GuildMessage, remaining: number, arg: string): Promise<Track[] | null> {
+	const matches = arg.match(/open.spotify.com\/track\/(?<trackid>[a-zA-Z0-9_-]+).*$/);
+	const trackId = matches?.groups?.trackid;
+	if (!trackId) return null;
+	const { body: track } = await message.client.spotifyAPI.getTrack(trackId);
+	return downloadResults(message, remaining, `ytsearch: ${track.name}`);
+}
+
 /**
  * Downloads the tracks from the audio server, then filters them.
  * @param message The message that ran the argument.

@@ -1,6 +1,6 @@
 import { Args, Argument, ArgumentContext } from '@sapphire/framework';
 import type { Track } from '@skyra/audio';
-import { getUserRemainingEntries, handleURL, handleSoundCloud, handleYouTube, downloadResults } from '../lib/Music/MusicUtils';
+import { getUserRemainingEntries, handleURL, handleSoundCloud, handleYouTube, downloadResults, handleSpotifySong } from '../lib/Music/MusicUtils';
 import type { GuildMessage } from '../lib/types/Discord';
 
 export class UserArgument extends Argument<Track[]> {
@@ -29,14 +29,8 @@ export class UserArgument extends Argument<Track[]> {
 				context,
 				message: ':partying_face: Woo! You found a unfinished feature, check back later!'
 			});
-		} else if (parameter.match(/(open.spotify.com\/track\/)([a-zA-Z0-9_-]+).*$/)) {
-			// TODO: handle spotify song
-			return this.error({
-				parameter,
-				identifier: 'musicManager:featureNotImplemented',
-				context,
-				message: ':partying_face: Woo! You found a unfinished feature, check back later!'
-			});
+		} else if (parameter.match(/open.spotify.com\/track\/([a-zA-Z0-9_-]+).*$/)) {
+			tracks = await handleSpotifySong(message, remaining, parameter);
 		} else if (parameter.match(/(open.spotify.com\/album\/)([a-zA-Z0-9_-]+).*$/)) {
 			// TODO: handle spotify albumn
 			return this.error({
