@@ -103,8 +103,36 @@ export async function handleSpotifySong(message: GuildMessage, remaining: number
 	const matches = arg.match(/open.spotify.com\/track\/(?<trackid>[a-zA-Z0-9_-]+).*$/);
 	const trackId = matches?.groups?.trackid;
 	if (!trackId) return null;
-	const { body: track } = await message.client.spotifyAPI.getTrack(trackId);
-	return downloadResults(message, remaining, `ytsearch: ${track.name}`);
+	const track = await message.client.spotifyUtils.getTrack(trackId);
+	return downloadResults(
+		message,
+		remaining,
+		`ytsearch: ${track.name} ${track.artists
+			.map((x) => x.name)
+			.slice(0, 2)
+			.join(' ')}`
+	);
+}
+
+export async function handleSpotifyPlaylist(message: GuildMessage, remaining: number, arg: string): Promise<Track[] | null> {
+	const matches = arg.match(/open.spotify.com\/playlist\/(?<playlistid>[a-zA-Z0-9_-]+).*$/);
+	const playlistId = matches?.groups?.playlistid;
+	if (!playlistId) return null;
+	const playlist = await message.client.spotifyUtils.getPlaylist(playlistId);
+	const tracks = [];
+	for (const strack of playlist.tracks.items) {
+		const res = await downloadResults(
+			message,
+			remaining,
+			`ytsearch: ${strack.track.name} ${strack.track.artists
+				.map((x) => x.name)
+				.slice(0, 2)
+				.join(' ')}`
+		);
+		if (res) tracks.push(res[0]);
+	}
+
+	return tracks;
 }
 
 /**

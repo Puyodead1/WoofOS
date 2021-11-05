@@ -17,8 +17,14 @@ program.parse(process.argv);
 
 const options = program.opts();
 
+const client = new WoofClient(CLIENT_OPTIONS);
 (async () => {
-	const client = new WoofClient(CLIENT_OPTIONS);
+	client.redis.on('connect', () => console.info(`[Redis] Connection established.`));
+	client.redis.on('ready', () => console.info(`[Redis] Ready!`));
+	client.redis.on('ready', (e) => console.error(`[Redis] Error!`, e));
+	client.redis.on('close', () => console.warn(`[Redis] Connection closed.`));
+	client.redis.on('reconnecting', () => console.warn(`[Redis] Reconnecting...`));
+
 	client.MUSIC_ENABLED = !options.disableMusic;
 
 	// startup
@@ -27,7 +33,7 @@ const options = program.opts();
 		container.db = await DbSet.connect();
 		console.info('[Database] Database connection successful');
 	} catch (e) {
-		console.error('[Database] Failed to connect to database! This is a fatal error, cannot continue!');
+		console.error('[Database] Failed to connect to database! This is a fatal error, cannot continue!', e);
 		process.exit(1);
 	}
 
@@ -37,8 +43,8 @@ const options = program.opts();
 			await client.music.connect();
 			console.info('[Music] Music nodes connected');
 		} catch (e) {
-			console.error(`[Music] Connection to music nodes failed: ${e}`);
-			console.error(`[Music] Music systems will be disabled due to connection error`);
+			console.error(`[Music] Connection to music nodes failed!`, e);
+			console.error(`[Music] Music systems will be disabled due to connection error`, e);
 			client.MUSIC_ENABLED = false;
 		}
 	} else {
@@ -50,13 +56,29 @@ const options = program.opts();
 		await client.login(TOKEN);
 		console.info('[Discord] Connected to Discord');
 	} catch (e) {
-		console.error('[Discord] Failed to connect to Discord! This is a fatal error, cannot continue!');
+		console.error('[Discord] Failed to connect to Discord! This is a fatal error, cannot continue!', e);
 		process.exit(1);
 	}
 })();
 
 process.on('uncaughtException', function (err) {
-	console.error(err);
+	console.error(`[UncaughtException]`, err);
+});
+
+process.on('SIGTERM', async () => {
+	console.info('[Shutdown] Received SIGTERM, shutting down...');
+	console.info('[Shutdown] Shutting down Redis...');
+	client.redis.disconnect();
+	try {
+		console.info('[Shutdown] Shutting down Music...');
+		await client.music.disconnect();
+	} catch (e) {
+		console.error(`[Shutdown] Error while disconnecting from Music nodes!`, e);
+	}
+	console.info('[Shutdown] Disconnecting from Discord...');
+	client.destroy();
+	console.log('[Shutdown] Goodbye!');
+	process.exit(0);
 });
 
 declare global {

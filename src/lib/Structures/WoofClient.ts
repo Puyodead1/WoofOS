@@ -1,6 +1,6 @@
 import { SapphireClient, container } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
-import { MUSIC_OPTIONS, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } from '../../config';
+import { MUSIC_OPTIONS, REDIS_OPTIONS, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } from '../../config';
 import { SettingsManager } from '../database/settings/SettingsManager';
 import type { DbSet } from '../database/utils/DbSet';
 import { QueueClient } from '../Music/QueueClient';
@@ -8,11 +8,15 @@ import { ScheduleManager } from './ScheduleManager';
 import SpotifyWebApi from 'spotify-web-api-node';
 import type { PlatformStore } from '../database/settings/structures/PlatformStore';
 import type { TaskStore } from '../database/settings/structures/TaskStore';
+import Redis from 'ioredis';
+import { SpotifyUtils } from '../Music/Spotify';
 
 export default class WoofClient extends SapphireClient {
 	public MUSIC_ENABLED = true;
 	public voteMutes = new Set<string>();
 	public readonly music: QueueClient;
+	public readonly redis: Redis.Redis;
+	public readonly spotifyUtils: SpotifyUtils;
 
 	constructor(options: ClientOptions) {
 		super(options);
@@ -25,6 +29,9 @@ export default class WoofClient extends SapphireClient {
 			clientId: SPOTIFY_CLIENT_ID,
 			clientSecret: SPOTIFY_CLIENT_SECRET
 		});
+
+		this.redis = new Redis(REDIS_OPTIONS);
+		this.spotifyUtils = new SpotifyUtils(this);
 
 		container.settings = new SettingsManager(this);
 		container.client = this;
@@ -55,6 +62,7 @@ declare module 'discord.js' {
 		music: QueueClient;
 		spotifyAPI: SpotifyWebApi;
 		setupSpotify(): Promise<number>;
+		redis: Redis.Redis;
 	}
 }
 

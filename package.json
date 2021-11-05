@@ -44,6 +44,7 @@
 		"@sapphire/utilities": "^3.0.4",
 		"@skyra/audio": "^2.0.0",
 		"@types/humanize-duration": "^3.25.1",
+		"@types/ioredis": "^4.28.1",
 		"@types/spotify-web-api-node": "^5.0.3",
 		"async-rwlock": "^1.1.1",
 		"better-logging": "^4.5.1",

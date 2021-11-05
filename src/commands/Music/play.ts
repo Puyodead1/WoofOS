@@ -58,6 +58,6 @@ export class UserCommand extends WoofCommand {
 			await audio.start();
 		}
 
-		return;
+		return null;
 	}
 }
