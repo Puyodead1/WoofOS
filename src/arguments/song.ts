@@ -19,9 +19,12 @@ export class UserArgument extends Argument<Track[]> {
 
 		let tracks: Track[] | null = [];
 
+		// match youtube videos
 		if (parameter.match(/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+).*/)) {
 			tracks = await handleYouTube(message, remaining, parameter);
-		} else if (parameter.match(/youtube\.com\/.*\?.*\blist=([a-zA-Z0-9_-]+).*$/)) {
+		}
+		// match youtube playlists
+		else if (parameter.match(/youtube\.com\/.*\?.*\blist=([a-zA-Z0-9_-]+).*$/)) {
 			// TODO: handle youtube playlist
 			return this.error({
 				parameter,
@@ -29,11 +32,17 @@ export class UserArgument extends Argument<Track[]> {
 				context,
 				message: ':partying_face: Woo! You found a unfinished feature, check back later!'
 			});
-		} else if (parameter.match(/(open.spotify.com\/playlist\/)([a-zA-Z0-9_-]+).*$/)) {
+		}
+		// match spotify playlists
+		else if (parameter.match(/(open.spotify.com\/playlist\/)([a-zA-Z0-9_-]+).*$/)) {
 			tracks = await handleSpotifyPlaylist(message, remaining, parameter);
-		} else if (parameter.match(/open.spotify.com\/track\/([a-zA-Z0-9_-]+).*$/)) {
+		}
+		// match spotify tracks
+		else if (parameter.match(/open.spotify.com\/track\/([a-zA-Z0-9_-]+).*$/)) {
 			tracks = await handleSpotifySong(message, remaining, parameter);
-		} else if (parameter.match(/(open.spotify.com\/album\/)([a-zA-Z0-9_-]+).*$/)) {
+		}
+		// match spotify albums
+		else if (parameter.match(/(open.spotify.com\/album\/)([a-zA-Z0-9_-]+).*$/)) {
 			// TODO: handle spotify albumn
 			return this.error({
 				parameter,
@@ -41,11 +50,19 @@ export class UserArgument extends Argument<Track[]> {
 				context,
 				message: ':partying_face: Woo! You found a unfinished feature, check back later!'
 			});
-		} else if (parameter.match(/soundcloud\.com(?:\/[a-zA-Z0-9_-]+)+/)) {
+		}
+		// match soundcloud urls
+		else if (parameter.match(/soundcloud\.com(?:\/[a-zA-Z0-9_-]+)+/)) {
 			tracks = await downloadResults(message, remaining, parameter);
-		} else {
+		}
+		// fallback for any urls
+		else if (parameter.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/)) {
+			tracks = await handleURL(message, remaining, parameter, context.args);
+		}
+		// anything else
+		else {
 			if (context.args.getFlags('sc', 'soundcloud')) tracks = await handleSoundCloud(message, remaining, parameter);
-			else tracks = await handleURL(message, remaining, parameter, context.args);
+			else tracks = await handleYouTube(message, remaining, parameter);
 		}
 
 		// const tracks =
