@@ -9,7 +9,7 @@ import { container } from '@sapphire/framework';
 import { DbSet } from './lib/database/utils/DbSet';
 import { CLIENT_OPTIONS, TOKEN } from './config';
 
-betterLogging(console);
+// betterLogging(console);
 const program = new Command();
 
 program.option('--disable-music', 'Disable music systems', false);
@@ -29,7 +29,7 @@ const client = new WoofClient(CLIENT_OPTIONS);
 
 	// startup
 	try {
-		console.info('[Database] Connecting to database...');
+		console.log('[Database] Connecting to database...');
 		container.db = await DbSet.connect();
 		console.info('[Database] Database connection successful');
 	} catch (e) {
@@ -39,7 +39,7 @@ const client = new WoofClient(CLIENT_OPTIONS);
 
 	if (client.MUSIC_ENABLED) {
 		try {
-			console.info('[Music] Connecting to music nodes...');
+			console.log('[Music] Connecting to music nodes...');
 			await client.music.connect();
 			console.info('[Music] Music nodes connected');
 		} catch (e) {
@@ -52,7 +52,7 @@ const client = new WoofClient(CLIENT_OPTIONS);
 	}
 
 	try {
-		console.info('[Discord] Connecting to Discord...');
+		console.log('[Discord] Connecting to Discord...');
 		await client.login(TOKEN);
 		console.info('[Discord] Connected to Discord');
 	} catch (e) {
@@ -66,16 +66,16 @@ process.on('uncaughtException', function (err) {
 });
 
 process.on('SIGTERM', async () => {
-	console.info('[Shutdown] Received SIGTERM, shutting down...');
-	console.info('[Shutdown] Shutting down Redis...');
+	console.log('[Shutdown] Received SIGTERM, shutting down...');
+	console.log('[Shutdown] Shutting down Redis...');
 	client.redis.disconnect();
 	try {
-		console.info('[Shutdown] Shutting down Music...');
+		console.log('[Shutdown] Shutting down Music...');
 		await client.music.disconnect();
 	} catch (e) {
 		console.error(`[Shutdown] Error while disconnecting from Music nodes!`, e);
 	}
-	console.info('[Shutdown] Disconnecting from Discord...');
+	console.log('[Shutdown] Disconnecting from Discord...');
 	client.destroy();
 	console.log('[Shutdown] Goodbye!');
 	process.exit(0);
