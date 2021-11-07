@@ -21,7 +21,7 @@ const client = new WoofClient(CLIENT_OPTIONS);
 (async () => {
 	client.redis.on('connect', () => console.info(`[Redis] Connection established.`));
 	client.redis.on('ready', () => console.info(`[Redis] Ready!`));
-	client.redis.on('ready', (e) => console.error(`[Redis] Error!`, e));
+	client.redis.on('error', (e) => console.error(`[Redis] Error!`, e));
 	client.redis.on('close', () => console.warn(`[Redis] Connection closed.`));
 	client.redis.on('reconnecting', () => console.warn(`[Redis] Reconnecting...`));
 
@@ -61,9 +61,9 @@ const client = new WoofClient(CLIENT_OPTIONS);
 	}
 })();
 
-process.on('uncaughtException', function (err) {
-	console.error(`[UncaughtException]`, err);
-});
+// process.on('uncaughtException', function (err) {
+// 	console.error(`[UncaughtException]`, err);
+// });
 
 process.on('SIGTERM', async () => {
 	console.log('[Shutdown] Received SIGTERM, shutting down...');

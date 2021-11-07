@@ -58,6 +58,10 @@ export class UserCommand extends WoofCommand {
 					.addField('Tracks', playlist.tracks.total.toString(), true)
 					.addField('Public', playlist.public ? 'Yes' : 'No' ?? 'Unknown', true)
 					.addField('Collaborative', playlist.collaborative ? 'Yes' : 'No' ?? 'Unknown', true)
+					.setFooter(
+						`Requested by ${message.author.username}`,
+						message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 2048 })
+					)
 				// .addField('Duration', new DurationFormatter().format(tracks.items.reduce((a, b) => a + b.track.duration_ms, 0)), true)
 			});
 		}
