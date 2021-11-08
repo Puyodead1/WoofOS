@@ -110,9 +110,9 @@
     tslib "^2.3.1"
 
 "@sapphire/fetch@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@sapphire/fetch/-/fetch-2.0.2.tgz#2b64ce716117f96899a6f0b41759c23ebee43188"
-  integrity sha512-WIJsTCoeBZk8wj1maVN8zdnqka4h26kv9A6VxzDbB7WOs1ujwz474Z+G6ArT/qk4p+sX3nLH8qlODcg2m8EEgw==
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@sapphire/fetch/-/fetch-2.0.3.tgz#37d914d41ec3f9c6cf96581f65e12a1515a4fc1a"
+  integrity sha512-eqqEv21eeBthgWc0d428syCLh7ReBOO8qwk6CY2bhkP+gNIvzB8W+88ajgu/2KhIjesiaj8cRNK4wGhtolNbKw==
   dependencies:
     cross-fetch "^3.1.4"
 
