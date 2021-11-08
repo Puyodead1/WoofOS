@@ -20,11 +20,6 @@
     ts-mixer "^6.0.0"
     tslib "^2.3.1"
 
-"@discordjs/collection@^0.2.1":
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/@discordjs/collection/-/collection-0.2.4.tgz#c8ff2250430dcec7324dd4aafd1ccbcbdfa9ac14"
-  integrity sha512-PVrEJH+V6Ob0OwfagYQ/57kwt/HNEJxt5jqY4P+S3st9y29t9iokdnGMQoJXG5VEMAQIPbzu9Snw1F6yE8PdLA==
-
 "@discordjs/collection@^0.3.1", "@discordjs/collection@^0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@discordjs/collection/-/collection-0.3.2.tgz#3c271dd8a93dad89b186d330e24dbceaab58424a"
@@ -130,12 +125,12 @@
     tslib "^2.3.1"
 
 "@sapphire/pieces@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/pieces/-/pieces-3.1.0.tgz#7d12b3c52d6a96abcd62047b472ed9367d68f084"
-  integrity sha512-yTe1siNudi7PaA/InJ3f+dIVDCurTQ7LniA5DnlZecyHmHu/nijq7wnjEccaF6mytwOuW89DMnRKkUOprpZIIg==
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@sapphire/pieces/-/pieces-3.1.1.tgz#9bbdce977b04480c0a76946b593968d4e7fba054"
+  integrity sha512-1BYl6fkc2eCabF6AA7lKCzps/2hro9aPR6TfOPyMPHp2f8vf/CpJ2h4BwVw7hK/z2Nj7cu+siGcsxxPH2bfZhw==
   dependencies:
-    "@discordjs/collection" "^0.2.1"
-    "@sapphire/utilities" "^3.0.3"
+    "@discordjs/collection" "^0.3.2"
+    "@sapphire/utilities" "^3.0.6"
     tslib "^2.3.1"
 
 "@sapphire/plugin-api@^3.0.1":
@@ -219,7 +214,7 @@
     nan "^2.15.0"
     tslib "^2.3.1"
 
-"@sapphire/utilities@^3.0.3", "@sapphire/utilities@^3.0.4", "@sapphire/utilities@^3.0.6":
+"@sapphire/utilities@^3.0.4", "@sapphire/utilities@^3.0.6":
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-3.0.6.tgz#ba14fcd6ca19a2665b78335d28477241f99494ea"
   integrity sha512-veCUmM1Q/zSscv223IveJBaQ/HlENycsmmLnakL79EWpAFnnayycrsa00rMDRUfqgizTJ2rsqoH0JVqqRbxKiA==
