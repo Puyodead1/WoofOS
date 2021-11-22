@@ -220,9 +220,9 @@
     tslib "^2.3.1"
 
 "@sapphire/utilities@^3.0.3", "@sapphire/utilities@^3.0.4", "@sapphire/utilities@^3.0.6":
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-3.0.6.tgz#ba14fcd6ca19a2665b78335d28477241f99494ea"
-  integrity sha512-veCUmM1Q/zSscv223IveJBaQ/HlENycsmmLnakL79EWpAFnnayycrsa00rMDRUfqgizTJ2rsqoH0JVqqRbxKiA==
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-3.1.0.tgz#50f18c8ae10535c4fde6b2c68c2a45262c45756f"
+  integrity sha512-Vwsd567hZ1LPDh791r4DHwxlO1EzUefjYhNj+kwbliHWK2TVPhMvF5v1eZKtUCgdBmobqa8CBPwCwymHstuj5w==
 
 "@sindresorhus/is@^4.0.1", "@sindresorhus/is@^4.2.0":
   version "4.2.0"
