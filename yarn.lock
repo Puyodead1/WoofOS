@@ -254,15 +254,10 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node@*":
-  version "16.11.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.6.tgz#6bef7a2a0ad684cf6e90fcfe31cecabd9ce0a3ae"
-  integrity sha512-ua7PgUoeQFjmWPcoo9khiPum3Pd60k4/2ZGXt18sm2Slk0W0xZTqt5Y0Ny1NyBiN1EVQ/+FaF9NcY4Qe6rwk5w==
-
-"@types/node@^14.17.22":
-  version "14.17.32"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.17.32.tgz#2ca61c9ef8c77f6fa1733be9e623ceb0d372ad96"
-  integrity sha512-JcII3D5/OapPGx+eJ+Ik1SQGyt6WvuqdRfh9jUwL6/iHGjmyOriBDciBUu7lEIBTL2ijxwrR70WUnw5AEDmFvQ==
+"@types/node@*", "@types/node@^16.11.7":
+  version "16.11.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.9.tgz#879be3ad7af29f4c1a5c433421bf99fab7047185"
+  integrity sha512-MKmdASMf3LtPzwLyRrFjtFFZ48cMf8jmX5VRYrDQiJa8Ybu5VAmkqBWqKU8fdCwD8ysw4mQ9nrEHvzg6gunR7A==
 
 "@types/psl@^1.1.0":
   version "1.1.0"
@@ -378,14 +373,14 @@ base64-js@^1.3.1:
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
 better-logging@^4.5.1:
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/better-logging/-/better-logging-4.5.1.tgz#8fe428efe244cf8a8436445ff93b91afbaadf52a"
-  integrity sha512-BwfWgAHB83G3GEpjYGKWYN1nKlJbCj8L80b6bHx5kjtpNmOm6VQsAu1+h3Z1X70l2keBktaNl13P4TRTfVapOA==
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/better-logging/-/better-logging-4.6.0.tgz#45dc3a9ec92ab4721f2ae145530547d6906897a1"
+  integrity sha512-83LJnFkLw15VA4RkW+ZJ61vGCtrcpp+BX3UFdpfyreJJLcc2fKj6xM4K5C0p7lIxLiR6fkrQaC80p3/+Ida9Nw==
   dependencies:
     "@olian/typescript-helpers" "^2.3.0"
-    "@types/node" "^14.17.22"
-    chalk "^4.1.0"
-    fast-safe-stringify "^2.0.7"
+    "@types/node" "^16.11.7"
+    chalk "^4.1.2"
+    fast-safe-stringify "^2.1.1"
 
 binarytf@^2.0.0:
   version "2.0.0"
@@ -434,7 +429,7 @@ callsites@^3.1.0:
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
 
-chalk@^4.0.0, chalk@^4.1.0:
+chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -642,7 +637,7 @@ event-stream@=3.3.4:
     stream-combiner "~0.0.4"
     through "~2.3.1"
 
-fast-safe-stringify@^2.0.7:
+fast-safe-stringify@^2.0.7, fast-safe-stringify@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.1.1.tgz#c406a83b6e70d9e35ce3b30a81141df30aeba884"
   integrity sha512-W+KJc2dmILlPplD/H4K9l9LcAHAfPtP6BY84uVLXQ6Evcz9Lcg33Y2z1IVblT6xdY54PXYVHEv+0Wpq8Io6zkA==
