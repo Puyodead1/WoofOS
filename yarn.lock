@@ -137,9 +137,9 @@
     tslib "^2.3.1"
 
 "@sapphire/plugin-editable-commands@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@sapphire/plugin-editable-commands/-/plugin-editable-commands-1.0.1.tgz#9385e5da3b378026fb644ed7cb398e70812e3d4a"
-  integrity sha512-7uMueblrnIo5ZgdeDfX4ZwoUTdMtN4xgskCJBBw7llG04D8KIPynVbiQBNRn6CFJqpPL5XTHy4sNmh/eyIxQQQ==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/plugin-editable-commands/-/plugin-editable-commands-1.1.0.tgz#058448696178bc61a76056a81fe33e811122730e"
+  integrity sha512-0pLeURjodxFdpYLWN9FU61iUAA0hSreWSbVd1HFCu1JKxbGLPMFs5aHxOdFhUzBJH4iM0HTQGB95Ua8gp/Fy4g==
   dependencies:
     "@skyra/editable-commands" "^2.1.0"
     tslib "^2.3.1"
