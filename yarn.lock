@@ -154,9 +154,9 @@
     tslib "^2.3.1"
 
 "@sapphire/plugin-subcommands@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@sapphire/plugin-subcommands/-/plugin-subcommands-2.0.1.tgz#f49af3d689163df9b316673e2fb82d7d6bd00cdf"
-  integrity sha512-pJFTy1icjlUfkxOe+nNzFajGGWgS6k1Y5iiIMDRZ58PxuRVO3a7tsv5Fhp27yecL+vVGtti0bbX6EegXKeF0yw==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/plugin-subcommands/-/plugin-subcommands-2.1.0.tgz#d413b4a7c978b5edb38ab0113e7c35ba2e4542bc"
+  integrity sha512-IePFoD0NAIf9zHjqsek1vQQ82d+bq67b8VKjsS0wjqkM17q2gHX753jJyGl5qayrCmPncZFiBMLZzPU3ysbLSw==
   dependencies:
     tslib "^2.3.1"
 
