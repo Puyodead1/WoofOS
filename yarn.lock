@@ -189,9 +189,9 @@
     "@sapphire/time-utilities" "^1.4.6"
 
 "@sapphire/stopwatch@^1.2.3":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@sapphire/stopwatch/-/stopwatch-1.2.3.tgz#bfbba6ade9ed57ef52129630ce370270a285604a"
-  integrity sha512-MrwbRmAG7hK0NsP8PfmcDkrP4J0PPG4ggaJudT9yG4ComSqrS9FRDDBu1HPT2vcUeFyuXSKVcA58kkKeGkzgbQ==
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@sapphire/stopwatch/-/stopwatch-1.2.4.tgz#d7eaf7ab53ef9f43c4e4d1eb9185b5792237d8a7"
+  integrity sha512-THiIVTVYZbLloyFeRB0ISWSW275/l6ZatWrf15rYX/qCdTmn5ZyNfJHVZEUnCcO1juCQVEMK5/kXoYrHucxBaQ==
   dependencies:
     tslib "^2.3.1"
 
