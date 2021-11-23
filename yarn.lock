@@ -139,14 +139,14 @@
     tslib "^2.3.1"
 
 "@sapphire/plugin-api@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@sapphire/plugin-api/-/plugin-api-3.0.1.tgz#1df44a4df1a5f7902fb986348dfea0e7e1c162bc"
-  integrity sha512-4I7ajd0g1fFlSw2fZOnz4xXx4bzZXs3l9/EaMuQAQBah25iyRc0AwbTK2P8Uw/ozW+qxMxzwCMiLnc5DVaZHRQ==
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/plugin-api/-/plugin-api-3.1.0.tgz#3a0378ea253cd4249d58316e1799aea0aad152f5"
+  integrity sha512-aEQqJqKkyh9JV3I4frTXATJ1Zq0Owb0SAUOvnMCicL9H6d8urK/pldc7x1QuGuLzQSj3+b2Uc/euifczEK6h9Q==
   dependencies:
-    "@types/node-fetch" "^2.5.12"
+    "@types/node-fetch" "2.5.12"
     "@types/psl" "^1.1.0"
-    "@types/ws" "8.2.0"
-    node-fetch "^2.6.5"
+    "@types/ws" "^8.2.0"
+    node-fetch "2.6.6"
     psl "^1.8.0"
     tslib "^2.3.1"
 
@@ -260,7 +260,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node-fetch@^2.5.12":
+"@types/node-fetch@2.5.12", "@types/node-fetch@^2.5.12":
   version "2.5.12"
   resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.5.12.tgz#8a6f779b1d4e60b7a57fb6fd48d84fb545b9cc66"
   integrity sha512-MKgC4dlq4kKNa/mYrwpKfzQMB5X3ee5U6fSprkKpToBqBmX4nFZL9cW5jl6sWn+xpRJ7ypWh2yyqqr8UUCstSw==
@@ -295,7 +295,7 @@
   dependencies:
     "@types/spotify-api" "*"
 
-"@types/ws@8.2.0", "@types/ws@^8.2.0":
+"@types/ws@^8.2.0":
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.2.0.tgz#75faefbe2328f3b833cb8dc640658328990d04f3"
   integrity sha512-cyeefcUCgJlEk+hk2h3N+MqKKsPViQgF5boi9TTHSK+PoR9KWBb/C5ccPcDyAqgsbAYHTwulch725DV84+pSpg==
@@ -1035,7 +1035,7 @@ node-fetch@2.6.1:
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
-node-fetch@^2.6.0, node-fetch@^2.6.1, node-fetch@^2.6.5:
+node-fetch@2.6.6, node-fetch@^2.6.0, node-fetch@^2.6.1:
   version "2.6.6"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.6.tgz#1751a7c01834e8e1697758732e9efb6eeadfaf89"
   integrity sha512-Z8/6vRlTUChSdIgMa51jxQ4lrw/Jy5SOW10ObaA47/RElsAN2c5Pn8bTgFGWn/ibwzXTE8qwr1Yzx28vsecXEA==
