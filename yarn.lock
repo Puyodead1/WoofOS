@@ -137,11 +137,11 @@
     tslib "^2.3.1"
 
 "@sapphire/plugin-editable-commands@^1.0.1":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/plugin-editable-commands/-/plugin-editable-commands-1.1.0.tgz#058448696178bc61a76056a81fe33e811122730e"
-  integrity sha512-0pLeURjodxFdpYLWN9FU61iUAA0hSreWSbVd1HFCu1JKxbGLPMFs5aHxOdFhUzBJH4iM0HTQGB95Ua8gp/Fy4g==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@sapphire/plugin-editable-commands/-/plugin-editable-commands-1.1.1.tgz#f62ea2a0301f9632a18c781a6390beb6e7701448"
+  integrity sha512-fF22HSxOyc2xvWRSzBvuJh5GfoZK5kqBdDf4E26W6XXyf6cIsoR56EmMAvT1TrtGPGMVAsr+iCxbkf2DWBFsEw==
   dependencies:
-    "@skyra/editable-commands" "^2.1.0"
+    "@skyra/editable-commands" "^2.1.1"
     tslib "^2.3.1"
 
 "@sapphire/plugin-logger@^2.0.1":
@@ -224,10 +224,10 @@
     tslib "^2.3.1"
     ws "^8.2.2"
 
-"@skyra/editable-commands@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@skyra/editable-commands/-/editable-commands-2.1.0.tgz#5c26b8716e99a4f7c48468dbda4f9a1603d69754"
-  integrity sha512-J2ok13AxditPel4pUknKFpLQDW7hF6Dchc8JnetGKlOJrHqy+j4/UJ+Qf46KgX/zsPcRB4Q5ydZIHAq4XNtK8g==
+"@skyra/editable-commands@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@skyra/editable-commands/-/editable-commands-2.1.1.tgz#0144fdda7bc27579622c40a3fc17c71a9c40771d"
+  integrity sha512-bgUB9xqexM5k9iN7/8I6/lpPsVB4t3ZwaKdldsI8aqpuoHWO1Sm9dM914/WVCE1vreUM8JAraclUN9vrxhy8CQ==
 
 "@sqltools/formatter@^1.2.2":
   version "1.2.3"
