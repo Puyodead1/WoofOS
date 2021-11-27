@@ -1,2 +1,4 @@
 labels:
+  'approved (squash)': 
+    action: merge
   docs: dependencies
