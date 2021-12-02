@@ -53,7 +53,7 @@
 		"binarytf": "^2.0.0",
 		"colorette": "^2.0.16",
 		"commander": "^8.3.0",
-		"discord-api-types": "^0.24.0",
+		"discord-api-types": "^0.25.2",
 		"discord.js": "^13.2.0",
 		"discordjs-button-pagination": "^2.0.1",
 		"ioredis": "^4.28.0",
