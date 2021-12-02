@@ -168,11 +168,11 @@
     prettier "^2.5.0"
 
 "@sapphire/ratelimits@^2.1.4", "@sapphire/ratelimits@^2.1.9":
-  version "2.1.9"
-  resolved "https://registry.yarnpkg.com/@sapphire/ratelimits/-/ratelimits-2.1.9.tgz#fbfd9e0a802f64d21a3c930e2f358f17c52a3306"
-  integrity sha512-c5j+5fK43b2LOfxgLA6idb5gEziRlzVMPpCSyPXjUfwkedKcI0dyjDaOYSs16JZE22WvI8boRwowa0JEvdrUvw==
+  version "2.1.10"
+  resolved "https://registry.yarnpkg.com/@sapphire/ratelimits/-/ratelimits-2.1.10.tgz#cab31c3f73e1c3cddd89197d20af732b78f8b88a"
+  integrity sha512-xcNRJPyvOMB/76IrZulNtJp38H4kDUE8ZzpTTkm9fAV2rut08zF5G74+rT8gDqfof9qUYRsgM+kmRru8TweiDA==
   dependencies:
-    "@sapphire/time-utilities" "^1.4.9"
+    "@sapphire/time-utilities" "^1.5.0"
 
 "@sapphire/stopwatch@^1.2.3":
   version "1.2.4"
@@ -181,7 +181,7 @@
   dependencies:
     tslib "^2.3.1"
 
-"@sapphire/time-utilities@^1.4.4", "@sapphire/time-utilities@^1.4.9":
+"@sapphire/time-utilities@^1.4.4", "@sapphire/time-utilities@^1.4.9", "@sapphire/time-utilities@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@sapphire/time-utilities/-/time-utilities-1.5.0.tgz#72b8e248a1902c7b392be850994aadf533c7e688"
   integrity sha512-D0k03sFafueJ/O9sIVJNfL9COYh9T0Ce/kzU8JWdZwUvvkVV9vv18/xP5LgRfiINunO22OxbCbC1vYLrshi7SA==
