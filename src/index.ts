@@ -19,37 +19,37 @@ const options = program.opts();
 
 const client = new WoofClient(CLIENT_OPTIONS);
 (async () => {
-	client.redis.on('connect', () => console.info(`[Redis] Connection established.`));
-	client.redis.on('ready', () => console.info(`[Redis] Ready!`));
-	client.redis.on('error', (e) => console.error(`[Redis] Error!`, e));
-	client.redis.on('close', () => console.warn(`[Redis] Connection closed.`));
-	client.redis.on('reconnecting', () => console.warn(`[Redis] Reconnecting...`));
+	// client.redis.on('connect', () => console.info(`[Redis] Connection established.`));
+	// client.redis.on('ready', () => console.info(`[Redis] Ready!`));
+	// client.redis.on('error', (e) => console.error(`[Redis] Error!`, e));
+	// client.redis.on('close', () => console.warn(`[Redis] Connection closed.`));
+	// client.redis.on('reconnecting', () => console.warn(`[Redis] Reconnecting...`));
 
-	client.MUSIC_ENABLED = !options.disableMusic;
+	// client.MUSIC_ENABLED = !options.disableMusic;
 
 	// startup
-	try {
-		console.log('[Database] Connecting to database...');
-		container.db = await DbSet.connect();
-		console.info('[Database] Database connection successful');
-	} catch (e) {
-		console.error('[Database] Failed to connect to database! This is a fatal error, cannot continue!', e);
-		process.exit(1);
-	}
+	// try {
+	// 	console.log('[Database] Connecting to database...');
+	// 	container.db = await DbSet.connect();
+	// 	console.info('[Database] Database connection successful');
+	// } catch (e) {
+	// 	console.error('[Database] Failed to connect to database! This is a fatal error, cannot continue!', e);
+	// 	process.exit(1);
+	// }
 
-	if (client.MUSIC_ENABLED) {
-		try {
-			console.log('[Music] Connecting to music nodes...');
-			await client.music.connect();
-			console.info('[Music] Music nodes connected');
-		} catch (e) {
-			console.error(`[Music] Connection to music nodes failed!`, e);
-			console.error(`[Music] Music systems will be disabled due to connection error`, e);
-			client.MUSIC_ENABLED = false;
-		}
-	} else {
-		console.info('[Music] Music systems are disabled');
-	}
+	// if (client.MUSIC_ENABLED) {
+	// 	try {
+	// 		console.log('[Music] Connecting to music nodes...');
+	// 		await client.music.connect();
+	// 		console.info('[Music] Music nodes connected');
+	// 	} catch (e) {
+	// 		console.error(`[Music] Connection to music nodes failed!`, e);
+	// 		console.error(`[Music] Music systems will be disabled due to connection error`, e);
+	// 		client.MUSIC_ENABLED = false;
+	// 	}
+	// } else {
+	// 	console.info('[Music] Music systems are disabled');
+	// }
 
 	try {
 		console.log('[Discord] Connecting to Discord...');
@@ -68,13 +68,13 @@ const client = new WoofClient(CLIENT_OPTIONS);
 process.on('SIGTERM', async () => {
 	console.log('[Shutdown] Received SIGTERM, shutting down...');
 	console.log('[Shutdown] Shutting down Redis...');
-	client.redis.disconnect();
-	try {
-		console.log('[Shutdown] Shutting down Music...');
-		await client.music.disconnect();
-	} catch (e) {
-		console.error(`[Shutdown] Error while disconnecting from Music nodes!`, e);
-	}
+	// client.redis.disconnect();
+	// try {
+	// 	console.log('[Shutdown] Shutting down Music...');
+	// 	await client.music.disconnect();
+	// } catch (e) {
+	// 	console.error(`[Shutdown] Error while disconnecting from Music nodes!`, e);
+	// }
 	console.log('[Shutdown] Disconnecting from Discord...');
 	client.destroy();
 	console.log('[Shutdown] Goodbye!');

@@ -79,21 +79,6 @@ function checkAdministrator(member: GuildMember, settings: GuildEntity) {
 	return roles.length === 0 ? member.permissions.has(Permissions.FLAGS.MANAGE_GUILD) : hasAtLeastOneKeyInMap(member.roles.cache, roles);
 }
 
-export function getAudio(resolvable: GuildResolvable) {
-	return container.client.music!.queues.get(container.client.guilds.resolveId(resolvable)!);
-}
-
-export function isDJ(member: GuildMember) {
-	return (
-		isGuildOwner(member) ||
-		isOnlyListener(member) ||
-		readSettings(
-			member,
-			(settings: GuildEntity) => checkDj(member, settings) || checkModerator(member, settings) || checkAdministrator(member, settings)
-		)
-	);
-}
-
 export function isModerator(member: GuildMember) {
 	return (
 		isGuildOwner(member) ||
@@ -119,41 +104,6 @@ export async function canManage(guild: Guild, member: GuildMember): Promise<bool
 	const [roles, pnodes] = await readSettings(guild, (settings: GuildEntity) => [settings[GuildSettings.Roles.Admin], settings.permissionNodes]);
 
 	return isAdminByRole(member, roles) && (pnodes.run(member, container.stores.get('commands').get('conf') as Command) ?? true);
-}
-
-export function getListeners(channel: VoiceBasedChannelTypes | Nullish): string[] {
-	if (isNullish(channel)) return [];
-
-	const members: string[] = [];
-	for (const [id, member] of channel.members.entries()) {
-		if (member.user.bot || member.voice.deaf) continue;
-		members.push(id);
-	}
-
-	return members;
-}
-
-export function getListenerCount(channel: VoiceBasedChannelTypes | Nullish): number {
-	if (isNullish(channel)) return 0;
-
-	let count = 0;
-	for (const member of channel.members.values()) {
-		if (!member.user.bot && !member.voice.deaf) ++count;
-	}
-
-	return count;
-}
-
-export function isOnlyListener(member: GuildMember) {
-	const { voiceChannel } = getAudio(member);
-	if (voiceChannel === null) return false;
-
-	const listeners = getListeners(voiceChannel);
-	return listeners.length === 1 && listeners[0] === member.id;
-}
-
-export function isOwner(member: GuildMember) {
-	return OWNERS.includes(member.id);
 }
 
 export function readSettings(guild: GuildResolvable, paths?: any) {

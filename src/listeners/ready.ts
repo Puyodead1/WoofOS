@@ -17,12 +17,12 @@ export class UserEvent extends Listener {
 		this.printBanner();
 		this.printStoreDebugInformation();
 
-		const taskStore = this.container.client.stores.get('tasks');
+		// const taskStore = this.container.client.stores.get('tasks');
 
-		if (taskStore.has('spotifyToken')) {
-			const task = taskStore.get('spotifyToken');
-			task!.run(null);
-		}
+		// if (taskStore.has('spotifyToken')) {
+		// 	const task = taskStore.get('spotifyToken');
+		// 	task!.run(null);
+		// }
 	}
 
 	private printBanner() {
