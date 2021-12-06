@@ -1,8 +1,7 @@
 import { ApplyOptions } from '@sapphire/decorators';
-import type { Args, CommandOptions } from '@sapphire/framework';
+import { Args, Command, CommandOptions } from '@sapphire/framework';
 import { reply } from '@skyra/editable-commands';
 import type { Message } from 'discord.js';
-import { WoofCommand } from '../../lib/Structures/WoofCommand';
 
 @ApplyOptions<CommandOptions>({
 	description: 'Creates a reminder',
@@ -10,7 +9,7 @@ import { WoofCommand } from '../../lib/Structures/WoofCommand';
 	aliases: ['remind'],
 	detailedDescription: 's = seconds, m = minutes, h = hours, d = days'
 })
-export class UserCommand extends WoofCommand {
+export class UserCommand extends Command {
 	public async messageRun(message: Message, args: Args) {
 		const when = await args.pick('string');
 		const reminder = await args.pick('string');

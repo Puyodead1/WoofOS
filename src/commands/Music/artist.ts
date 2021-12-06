@@ -1,9 +1,9 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { container } from '@sapphire/pieces';
-import { Args, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
+import { Args, Command, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { reply } from '@skyra/editable-commands';
 import type { GuildMessage } from '../../lib/types/Discord';
-import { WoofCommand } from '../../lib/Structures/WoofCommand';
+
 import { MessageEmbed } from 'discord.js';
 import { EMOJIS } from '../../config';
 
@@ -14,7 +14,7 @@ import { EMOJIS } from '../../config';
 	enabled: container.client.MUSIC_ENABLED,
 	quotes: []
 })
-export class UserCommand extends WoofCommand {
+export class UserCommand extends Command {
 	public async messageRun(message: GuildMessage, args: Args) {
 		const artistName = await args.rest('string').catch(() => null);
 		if (!artistName) return reply(message, ':zzz: Please specify an artist.');

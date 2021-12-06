@@ -1,12 +1,12 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { container } from '@sapphire/pieces';
-import { Args, ArgumentError, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
+import { Args, ArgumentError, Command, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { DurationFormatter } from '@sapphire/time-utilities';
 import { reply } from '@skyra/editable-commands';
 import { MessageEmbed } from 'discord.js';
 import { RequireUserInVoiceChannel } from '../../lib/Music/Decorators';
 import type { GuildMessage } from '../../lib/types/Discord';
-import { WoofCommand } from '../../lib/Structures/WoofCommand';
+
 import { getAudio } from '../../utils';
 
 @ApplyOptions<CommandOptions>({
@@ -17,7 +17,7 @@ import { getAudio } from '../../utils';
 	flags: ['sc', 'soundcloud', 'shuffle', 's'],
 	enabled: container.client.MUSIC_ENABLED
 })
-export class UserCommand extends WoofCommand {
+export class UserCommand extends Command {
 	@RequireUserInVoiceChannel()
 	public async messageRun(message: GuildMessage, args: Args) {
 		try {

@@ -1,10 +1,10 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { container } from '@sapphire/pieces';
-import { Args, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
+import { Args, Command, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { reply } from '@skyra/editable-commands';
 import { RequireBotInVoiceChannel, RequireDj, RequireSameVoiceChannel, RequireUserInVoiceChannel } from '../../lib/Music/Decorators';
 import type { GuildMessage } from '../../lib/types/Discord';
-import { WoofCommand } from '../../lib/Structures/WoofCommand';
+
 import { getAudio } from '../../utils';
 
 @ApplyOptions<CommandOptions>({
@@ -14,7 +14,7 @@ import { getAudio } from '../../utils';
 	runIn: [CommandOptionsRunTypeEnum.GuildText],
 	enabled: container.client.MUSIC_ENABLED
 })
-export class UserCommand extends WoofCommand {
+export class UserCommand extends Command {
 	@RequireBotInVoiceChannel()
 	@RequireUserInVoiceChannel()
 	@RequireDj()

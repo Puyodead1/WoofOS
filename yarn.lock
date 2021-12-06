@@ -78,14 +78,14 @@
   dependencies:
     tslib "^2.3.1"
 
-"@sapphire/discord-utilities@^2.2.3", "@sapphire/discord-utilities@^2.3.0":
+"@sapphire/discord-utilities@^2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@sapphire/discord-utilities/-/discord-utilities-2.3.0.tgz#de2ba8190970902fba7f4c07178faa7db119c765"
   integrity sha512-GQwuJxDCFIrXJ/K4KLDefroi0uy4WzBFiea3UB8aOHolqkobQM6mFbRkZ6aBzTBcAknqucFDa7MOHfU2QmnQkA==
   dependencies:
     twemoji-parser "^13.1.0"
 
-"@sapphire/discord.js-utilities@^4.0.0", "@sapphire/discord.js-utilities@^4.1.3":
+"@sapphire/discord.js-utilities@^4.0.0", "@sapphire/discord.js-utilities@^4.1.4":
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/@sapphire/discord.js-utilities/-/discord.js-utilities-4.1.4.tgz#85b48bbfd382dc185b892579e16311ea5700c8fc"
   integrity sha512-bdErZSKufxlOR4twH3Pa12CnQHJiauSzZGJMZ9EIZWob4khmpsAL4g3am5EP2Ifdpu1RJUYJAY7v4lS85De7AA==
@@ -102,15 +102,15 @@
   dependencies:
     cross-fetch "^3.1.4"
 
-"@sapphire/framework@^2.1.3":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/framework/-/framework-2.2.0.tgz#53149d3f01809f09b9695515e0340e4d6b0407ac"
-  integrity sha512-KDDwasVbF6cPaZvOv2wPm9Uci9m1fyrXoLMkiNK0CEZpqWBMgH2j4iCTFnToX4i2e0847FCb1NyLW2ap3JLhCA==
+"@sapphire/framework@^2.3.0-pr-293.1f05598.0":
+  version "2.3.0-pr-293.1f05598.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/framework/-/framework-2.3.0-pr-293.1f05598.0.tgz#2fb1d754b39f5ea03ae3458472f468347cb09e6a"
+  integrity sha512-JuYKgxGZ2GLIca7pyb/dIN9XTNkP3duvUVCe+2/ltd1jQ/BAPf46Sak75ftArtHpnAlJ65Rq2sLSm1fmRVpQKA==
   dependencies:
-    "@sapphire/discord-utilities" "^2.2.3"
-    "@sapphire/discord.js-utilities" "^4.1.3"
+    "@sapphire/discord-utilities" "^2.3.0"
+    "@sapphire/discord.js-utilities" "^4.1.4"
     "@sapphire/pieces" "^3.2.0"
-    "@sapphire/ratelimits" "^2.1.9"
+    "@sapphire/ratelimits" "^2.1.10"
     "@sapphire/utilities" "^3.1.0"
     lexure "^0.17.0"
     tslib "^2.3.1"
@@ -153,13 +153,6 @@
     colorette "^2.0.16"
     tslib "^2.3.1"
 
-"@sapphire/plugin-subcommands@^2.0.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@sapphire/plugin-subcommands/-/plugin-subcommands-2.1.1.tgz#949b2a688aab3ff60f0f17107c7f07af46445758"
-  integrity sha512-WL3UXqYGd7y1KXAVn5n+sfvVhIpm4udQ3ScJwlJ/2L93EdgF0ax0re2eoRtV9ASPN+rA0pEnabtVlPT8CWc8tA==
-  dependencies:
-    tslib "^2.3.1"
-
 "@sapphire/prettier-config@^1.2.3":
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/@sapphire/prettier-config/-/prettier-config-1.2.6.tgz#68dc7201bb31a8c274b0a9d48e754c4c237ef650"
@@ -167,7 +160,7 @@
   dependencies:
     prettier "^2.5.0"
 
-"@sapphire/ratelimits@^2.1.4", "@sapphire/ratelimits@^2.1.9":
+"@sapphire/ratelimits@^2.1.10", "@sapphire/ratelimits@^2.1.4":
   version "2.1.10"
   resolved "https://registry.yarnpkg.com/@sapphire/ratelimits/-/ratelimits-2.1.10.tgz#cab31c3f73e1c3cddd89197d20af732b78f8b88a"
   integrity sha512-xcNRJPyvOMB/76IrZulNtJp38H4kDUE8ZzpTTkm9fAV2rut08zF5G74+rT8gDqfof9qUYRsgM+kmRru8TweiDA==

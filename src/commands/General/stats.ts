@@ -4,13 +4,12 @@ import { reply } from '@sapphire/plugin-editable-commands';
 import { Message, version as DJS_VERSION } from 'discord.js';
 import { DurationFormatter } from '@sapphire/time-utilities';
 import { WoofEmbed } from '../../utils';
-import { WoofCommand } from '../../lib/Structures/WoofCommand';
 
 @ApplyOptions<CommandOptions>({
 	requiredClientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS'],
 	description: 'Provides some details about the bot and stats.'
 })
-export class UserCommand extends WoofCommand {
+export class UserCommand extends Command {
 	public async messageRun(message: Message) {
 		let [users, guilds, memory] = [0, 0, 0, 0];
 

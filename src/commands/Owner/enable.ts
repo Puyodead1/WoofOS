@@ -1,8 +1,8 @@
 import { ApplyOptions } from '@sapphire/decorators';
-import type { Args, CommandOptions } from '@sapphire/framework';
+import { Args, Command, CommandOptions } from '@sapphire/framework';
 import { reply } from '@sapphire/plugin-editable-commands';
 import type { Message } from 'discord.js';
-import { WoofCommand } from '../../lib/Structures/WoofCommand';
+
 import { codeBlock } from '@sapphire/utilities';
 
 @ApplyOptions<CommandOptions>({
@@ -10,7 +10,7 @@ import { codeBlock } from '@sapphire/utilities';
 	preconditions: ['BotOwner'],
 	requiredClientPermissions: ['SEND_MESSAGES']
 })
-export class UserCommand extends WoofCommand {
+export class UserCommand extends Command {
 	public async messageRun(message: Message, args: Args) {
 		const piece = await args.pick('piece');
 

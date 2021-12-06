@@ -1,19 +1,18 @@
 import { Time } from '@sapphire/time-utilities';
-import { Guild, GuildMember, GuildResolvable, Message, MessageEmbed, Permissions } from 'discord.js';
+import { CommandInteraction, Guild, GuildMember, GuildResolvable, Message, MessageEmbed, Permissions } from 'discord.js';
 import { BRANDING_COLOR, OWNERS } from './config';
 import { hasAtLeastOneKeyInMap } from '@sapphire/utilities';
-import { container } from '@sapphire/framework';
+import { Command, container } from '@sapphire/framework';
 import type { GuildEntity } from './lib/database/entities/GuildEntity';
 import { GuildSettings } from './lib/database/keys';
 import type { VoiceBasedChannelTypes } from '@sapphire/discord.js-utilities';
 import { isNullish, Nullish } from '@sapphire/utilities';
-import type { WoofCommand } from './lib/Structures/WoofCommand';
 
-export const WoofEmbed = (message: Message, authorTitle: string, footerTitle: string | null | undefined = null) => {
+export const WoofEmbed = (messageOrInteraction: Message | CommandInteraction, authorTitle: string, footerTitle: string | null | undefined = null) => {
 	const embed = new MessageEmbed()
 		.setAuthor(
 			authorTitle,
-			message.client.user!.avatarURL({
+			messageOrInteraction.client.user!.avatarURL({
 				format: 'png',
 				dynamic: true,
 				size: 2048
@@ -25,7 +24,7 @@ export const WoofEmbed = (message: Message, authorTitle: string, footerTitle: st
 	if (footerTitle) {
 		embed.setFooter(
 			footerTitle,
-			message.author.avatarURL({
+			(messageOrInteraction instanceof Message ? messageOrInteraction.author : messageOrInteraction.user).avatarURL({
 				format: 'png',
 				dynamic: true,
 				size: 2048
@@ -119,7 +118,7 @@ export async function canManage(guild: Guild, member: GuildMember): Promise<bool
 
 	const [roles, pnodes] = await readSettings(guild, (settings: GuildEntity) => [settings[GuildSettings.Roles.Admin], settings.permissionNodes]);
 
-	return isAdminByRole(member, roles) && (pnodes.run(member, container.stores.get('commands').get('conf') as WoofCommand) ?? true);
+	return isAdminByRole(member, roles) && (pnodes.run(member, container.stores.get('commands').get('conf') as Command) ?? true);
 }
 
 export function getListeners(channel: VoiceBasedChannelTypes | Nullish): string[] {

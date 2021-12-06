@@ -1,9 +1,8 @@
 import { ApplyOptions } from '@sapphire/decorators';
-import { Args, CommandOptions, Piece, Store } from '@sapphire/framework';
+import { Args, Command, CommandOptions, Piece, Store } from '@sapphire/framework';
 import { reply } from '@sapphire/plugin-editable-commands';
 import { Stopwatch } from '@sapphire/stopwatch';
 import type { Message } from 'discord.js';
-import { WoofCommand } from '../../lib/Structures/WoofCommand';
 
 @ApplyOptions<CommandOptions>({
 	description: 'Reloads a piece or all pieces',
@@ -11,7 +10,7 @@ import { WoofCommand } from '../../lib/Structures/WoofCommand';
 	requiredClientPermissions: ['SEND_MESSAGES'],
 	aliases: ['r']
 })
-export class UserCommand extends WoofCommand {
+export class UserCommand extends Command {
 	public async messageRun(message: Message, args: Args) {
 		const content = await this.reloadAny(args);
 		return reply(message, content);

@@ -1,11 +1,10 @@
 import { ApplyOptions } from '@sapphire/decorators';
-import type { Args, Command, CommandOptions } from '@sapphire/framework';
+import { Args, Command, CommandOptions } from '@sapphire/framework';
 import { reply } from '@sapphire/plugin-editable-commands';
 import type { Message } from 'discord.js';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 import { codeBlock } from '@sapphire/utilities';
-import { WoofCommand } from '../../lib/Structures/WoofCommand';
 
 const execAsync = promisify(exec);
 
@@ -18,7 +17,7 @@ const execAsync = promisify(exec);
 	aliases: ['exec'],
 	requiredClientPermissions: ['SEND_MESSAGES']
 })
-export class UserCommand extends WoofCommand {
+export class UserCommand extends Command {
 	public async messageRun(message: Message, args: Args) {
 		const cmd = await args.rest('string');
 

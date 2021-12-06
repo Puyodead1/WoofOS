@@ -1,7 +1,6 @@
-import { UserError } from '@sapphire/framework';
+import { Command, UserError } from '@sapphire/framework';
 import { arrayStrictEquals } from '@sapphire/utilities';
 import { Collection, GuildMember, Role, User } from 'discord.js';
-import type { WoofCommand } from '../../../Structures/WoofCommand';
 import type { PermissionsNode, GuildEntity } from '../../entities/GuildEntity';
 import { GuildSettings } from '../../keys';
 import { matchAny } from '../../utils/CommandMatcher';
@@ -27,7 +26,7 @@ export class PermissionNodeManager implements IBaseManager {
 		this.#settings = settings;
 	}
 
-	public run(member: GuildMember, command: WoofCommand) {
+	public run(member: GuildMember, command: Command) {
 		return this.runUser(member, command) ?? this.runRole(member, command);
 	}
 
@@ -144,7 +143,7 @@ export class PermissionNodeManager implements IBaseManager {
 		this.#previous = [];
 	}
 
-	private runUser(member: GuildMember, command: WoofCommand) {
+	private runUser(member: GuildMember, command: Command) {
 		// Assume sorted data
 		const permissionNodeRoles = this.#settings.permissionsUsers;
 		const memberId = member.id;
@@ -157,7 +156,7 @@ export class PermissionNodeManager implements IBaseManager {
 		return null;
 	}
 
-	private runRole(member: GuildMember, command: WoofCommand) {
+	private runRole(member: GuildMember, command: Command) {
 		const roles = member.roles.cache;
 
 		// Assume sorted data

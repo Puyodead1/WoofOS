@@ -1,12 +1,11 @@
 import { ApplyOptions } from '@sapphire/decorators';
-import type { Args, CommandOptions } from '@sapphire/framework';
+import { Args, Command, CommandOptions } from '@sapphire/framework';
 import { reply, send } from '@sapphire/plugin-editable-commands';
 import { Stopwatch } from '@sapphire/stopwatch';
 import { Type } from '@sapphire/type';
 import { codeBlock, isThenable } from '@sapphire/utilities';
 import type { Message } from 'discord.js';
 import { inspect } from 'util';
-import { WoofCommand } from '../../lib/Structures/WoofCommand';
 
 @ApplyOptions<CommandOptions>({
 	description: 'Evaluates arbitrary Javascript. Reserved for bot owner.',
@@ -16,7 +15,7 @@ import { WoofCommand } from '../../lib/Structures/WoofCommand';
 	options: ['depth'],
 	requiredClientPermissions: ['SEND_MESSAGES']
 })
-export class UserCommand extends WoofCommand {
+export class UserCommand extends Command {
 	public async messageRun(message: Message, args: Args) {
 		const code = await args.rest('string');
 

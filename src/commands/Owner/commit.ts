@@ -1,10 +1,9 @@
 import { ApplyOptions } from '@sapphire/decorators';
-import type { Args, CommandOptions } from '@sapphire/framework';
+import { Args, Command, CommandOptions } from '@sapphire/framework';
 import { reply } from '@sapphire/plugin-editable-commands';
 import type { Message } from 'discord.js';
 import { exec } from 'child_process';
 import { promisify } from 'util';
-import { WoofCommand } from '../../lib/Structures/WoofCommand';
 
 const execAsync = promisify(exec);
 
@@ -13,7 +12,7 @@ const execAsync = promisify(exec);
 	preconditions: ['BotOwner'],
 	requiredClientPermissions: ['SEND_MESSAGES']
 })
-export class UserCommand extends WoofCommand {
+export class UserCommand extends Command {
 	public async messageRun(message: Message, args: Args) {
 		const result = await execAsync('git rev-parse HEAD', {
 			timeout: Number(args.getOption('timeout')) ?? 60000

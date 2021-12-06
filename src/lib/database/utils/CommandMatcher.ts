@@ -1,6 +1,5 @@
-import { CommandStore, container } from '@sapphire/framework';
+import { Command, CommandStore, container } from '@sapphire/framework';
 import { isNullish } from '@sapphire/utilities';
-import type { WoofCommand } from '../../Structures/WoofCommand';
 
 function getNameSpaceDetails(name: string): readonly [string | null, string] {
 	const index = name.indexOf('.');
@@ -8,26 +7,26 @@ function getNameSpaceDetails(name: string): readonly [string | null, string] {
 	return [name.substring(0, index), name.substring(index + 1)];
 }
 
-function matchName(name: string, command: WoofCommand): boolean {
+function matchName(name: string, command: Command): boolean {
 	return command.name === name || command.aliases.some((alias) => alias === name);
 }
 
-function matchNameAndCategory(name: string, category: string, command: WoofCommand): boolean {
+function matchNameAndCategory(name: string, category: string, command: Command): boolean {
 	return command.category === category && matchName(name, command);
 }
 
-function matchNameCategoryAndSubCategory(name: string, category: string, subCategory: string, command: WoofCommand): boolean {
+function matchNameCategoryAndSubCategory(name: string, category: string, subCategory: string, command: Command): boolean {
 	return command.subCategory === subCategory && matchNameAndCategory(name, category, command);
 }
 
-export function matchAny(names: Iterable<string>, command: WoofCommand): boolean {
+export function matchAny(names: Iterable<string>, command: Command): boolean {
 	for (const name of names) {
 		if (match(name, command)) return true;
 	}
 	return false;
 }
 
-export function match(name: string, command: WoofCommand): boolean {
+export function match(name: string, command: Command): boolean {
 	// Match All:
 	if (name === '*') return true;
 
@@ -81,13 +80,13 @@ function resolveSubCategory(commands: CommandStore, category: string, subCategor
 }
 
 function resolveCommandWithCategory(commands: CommandStore, name: string, category: string): string | null {
-	const command = commands.get(name) as WoofCommand | undefined;
+	const command = commands.get(name) as Command | undefined;
 	if (command === undefined) return null;
 	return command.category === category ? command.name : null;
 }
 
 function resolveCommandWithCategoryAndSubCategory(commands: CommandStore, name: string, category: string, subCategory: string): string | null {
-	const command = commands.get(name) as WoofCommand | undefined;
+	const command = commands.get(name) as Command | undefined;
 	if (command === undefined) return null;
 	return command.category === category && command.subCategory === subCategory ? command.name : null;
 }

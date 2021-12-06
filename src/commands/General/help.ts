@@ -1,6 +1,6 @@
 import { ApplyOptions } from '@sapphire/decorators';
-import type { CommandOptions } from '@sapphire/framework';
-import { WoofCommand } from '../../lib/Structures/WoofCommand';
+import { Command, CommandOptions } from '@sapphire/framework';
+
 import { reply } from '@sapphire/plugin-editable-commands';
 import type { Message } from 'discord.js';
 import { BRANDING_SERVER, BRANDING_WEBSITE } from '../../config';
@@ -11,7 +11,7 @@ import { WoofEmbed } from '../../utils';
 	description: 'A help command',
 	aliases: ['info', 'about']
 })
-export class UserCommand extends WoofCommand {
+export class UserCommand extends Command {
 	public async messageRun(message: Message) {
 		const embed = WoofEmbed(message, 'Woof  ━  The Discord Dream')
 			.setFooter('Made possible by the team at Chat & Share 💛')

@@ -1,11 +1,10 @@
 import { ApplyOptions } from '@sapphire/decorators';
-import type { Args, CommandOptions } from '@sapphire/framework';
+import { Args, Command, CommandOptions } from '@sapphire/framework';
 import { reply } from '@skyra/editable-commands';
 import type { Message } from 'discord.js';
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
 import { PaginatedMessage } from '@sapphire/discord.js-utilities';
 import { WoofEmbed } from '../../utils';
-import { WoofCommand } from '../../lib/Structures/WoofCommand';
 
 interface JsonEmojiResponse {
 	id: number;
@@ -33,7 +32,7 @@ interface JsonCategoriesResponse {
 	aliases: ['de'],
 	enabled: false
 })
-export class UserCommand extends WoofCommand {
+export class UserCommand extends Command {
 	public API_URL = 'https://emoji.gg/api/';
 
 	public async messageRun(message: Message, args: Args) {

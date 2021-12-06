@@ -1,7 +1,7 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { container } from '@sapphire/pieces';
-import { Args, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
-import { WoofCommand } from '../../lib/Structures/WoofCommand';
+import { Args, Command, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
+
 import { RequireSameVoiceChannel, RequireSongPresent } from '../../lib/Music/Decorators';
 import { canManage, getAudio, getListenerCount } from '../../utils';
 import type { GuildMessage } from '../../lib/types/Discord';
@@ -18,7 +18,7 @@ const flags = ['force'];
 	flags,
 	enabled: container.client.MUSIC_ENABLED
 })
-export class UserCommand extends WoofCommand {
+export class UserCommand extends Command {
 	@RequireSongPresent()
 	@RequireSameVoiceChannel()
 	public async messageRun(message: GuildMessage, args: Args) {

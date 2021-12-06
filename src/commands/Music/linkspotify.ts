@@ -1,9 +1,9 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { container } from '@sapphire/pieces';
-import { CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
+import { Command, CommandOptions, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { reply } from '@skyra/editable-commands';
 import { BASE_URL, CLIENT_OPTIONS, EMOJIS } from '../../config';
-import { WoofCommand } from '../../lib/Structures/WoofCommand';
+
 import type { GuildMessage } from '../../lib/types/Discord';
 
 @ApplyOptions<CommandOptions>({
@@ -13,7 +13,7 @@ import type { GuildMessage } from '../../lib/types/Discord';
 	aliases: ['ls'],
 	enabled: container.client.MUSIC_ENABLED
 })
-export class UserCommand extends WoofCommand {
+export class UserCommand extends Command {
 	public async messageRun(message: GuildMessage) {
 		const { users } = this.container.db;
 

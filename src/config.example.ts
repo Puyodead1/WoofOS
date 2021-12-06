@@ -135,7 +135,8 @@ export const CLIENT_OPTIONS: ClientOptions = {
 		listenOptions: {
 			port: 8088
 		}
-	}
+	},
+	loadMessageCommandListeners: true
 };
 
 export const REDIS_OPTIONS: RedisOptions = {
