@@ -145,11 +145,11 @@
     tslib "^2.3.1"
 
 "@sapphire/plugin-logger@^2.0.1":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/plugin-logger/-/plugin-logger-2.1.0.tgz#4a80e3e19f4f7adc56ebe6bf417f7b3ee320a585"
-  integrity sha512-j67lcwSuuRt0lZnhxyWLMSBuUlAoDL9QLFUWC4uxA6qwoulZtdWehREbj8WTXVKZ4yM9M4aSV+OEaQDB0qKUEg==
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@sapphire/plugin-logger/-/plugin-logger-2.1.1.tgz#0dbb0dee203a97cc5cc6b2a1c33d1368a78e3735"
+  integrity sha512-pTJmKijQOy+CRV72znuECsTqgNsBWngSU1s3VNBj6nwQzAJzeu6G04Q5A0UuB1SGwy7gJh9njfoOvupIgUEaLg==
   dependencies:
-    "@sapphire/time-utilities" "^1.4.9"
+    "@sapphire/time-utilities" "^1.5.0"
     colorette "^2.0.16"
     tslib "^2.3.1"
 
@@ -181,7 +181,7 @@
   dependencies:
     tslib "^2.3.1"
 
-"@sapphire/time-utilities@^1.4.4", "@sapphire/time-utilities@^1.4.9", "@sapphire/time-utilities@^1.5.0":
+"@sapphire/time-utilities@^1.4.4", "@sapphire/time-utilities@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@sapphire/time-utilities/-/time-utilities-1.5.0.tgz#72b8e248a1902c7b392be850994aadf533c7e688"
   integrity sha512-D0k03sFafueJ/O9sIVJNfL9COYh9T0Ce/kzU8JWdZwUvvkVV9vv18/xP5LgRfiINunO22OxbCbC1vYLrshi7SA==
