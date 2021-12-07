@@ -125,13 +125,13 @@
     tslib "^2.3.1"
 
 "@sapphire/plugin-api@^3.0.1":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/plugin-api/-/plugin-api-3.1.0.tgz#3a0378ea253cd4249d58316e1799aea0aad152f5"
-  integrity sha512-aEQqJqKkyh9JV3I4frTXATJ1Zq0Owb0SAUOvnMCicL9H6d8urK/pldc7x1QuGuLzQSj3+b2Uc/euifczEK6h9Q==
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@sapphire/plugin-api/-/plugin-api-3.1.1.tgz#86a62f66f9e6605b98e648bd156ee65f87c6fecc"
+  integrity sha512-s/1KG/nCYD9Zb2hch2VhYXaqAzgEkJwSc4G0eO9uuepGz9qfEBex09RT3Aw3D8WjRKx9q1SFsqlqf1B6JLrG+Q==
   dependencies:
     "@types/node-fetch" "2.5.12"
     "@types/psl" "^1.1.0"
-    "@types/ws" "^8.2.0"
+    "@types/ws" "^8.2.1"
     node-fetch "2.6.6"
     psl "^1.8.0"
     tslib "^2.3.1"
@@ -276,10 +276,10 @@
   dependencies:
     "@types/spotify-api" "*"
 
-"@types/ws@^8.2.0":
-  version "8.2.1"
-  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.2.1.tgz#7bdf6b12869726c9f3cc3c48485efea5d4505274"
-  integrity sha512-SqQ+LhVZaJi7c7sYVkjWALDigi/Wy7h7Iu72gkQp8Y8OWw/DddEVBrTSKu86pQftV2+Gm8lYM61hadPKqyaIeg==
+"@types/ws@^8.2.0", "@types/ws@^8.2.1":
+  version "8.2.2"
+  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.2.2.tgz#7c5be4decb19500ae6b3d563043cd407bf366c21"
+  integrity sha512-NOn5eIcgWLOo6qW8AcuLZ7G8PycXu0xTxxkS6Q18VWFxgPUSOwV0pBj2a/4viNZVu25i7RIB7GttdkAIUUXOOg==
   dependencies:
     "@types/node" "*"
 
