@@ -1,18 +1,21 @@
 import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions } from '@sapphire/framework';
+import { Command, CommandOptions, RegisterBehavior } from '@sapphire/framework';
 import { CommandInteraction, MessageEmbed } from 'discord.js';
 import { BRANDING_COLOR, BRANDING_SERVER, BRANDING_WEBSITE } from '../../config';
 
 @ApplyOptions<CommandOptions>({
+	name: 'Help',
 	description: 'Help',
 	requiredClientPermissions: ['SEND_MESSAGES'],
 	chatInputCommand: {
 		register: true,
-		guildIds: ['638455519652085780']
+		guildIds: ['638455519652085780'],
+		idHints: ['918584258002554951'],
+		registerBehavior: RegisterBehavior.Overwrite
 	}
 })
 export class UserCommand extends Command {
-	public async chatInputRun(interaction: CommandInteraction) {
+	public override async chatInputRun(interaction: CommandInteraction) {
 		const embed = new MessageEmbed()
 			.setTimestamp()
 			.setAuthor(
