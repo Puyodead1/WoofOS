@@ -78,19 +78,19 @@
   dependencies:
     tslib "^2.3.1"
 
-"@sapphire/discord-utilities@^2.2.3", "@sapphire/discord-utilities@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/discord-utilities/-/discord-utilities-2.3.0.tgz#de2ba8190970902fba7f4c07178faa7db119c765"
-  integrity sha512-GQwuJxDCFIrXJ/K4KLDefroi0uy4WzBFiea3UB8aOHolqkobQM6mFbRkZ6aBzTBcAknqucFDa7MOHfU2QmnQkA==
+"@sapphire/discord-utilities@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/discord-utilities/-/discord-utilities-2.4.0.tgz#29d06e007b567d6a8b6ef3e1424440454bf7b723"
+  integrity sha512-HptHC/lH0l8oKNlVBDhRZLsPcQfizowlpzbuYMaMiyiRx4EFLGV9S8yqAIdv6XPOt0fXe6lDpE+kJAhzlGyIow==
   dependencies:
     twemoji-parser "^13.1.0"
 
-"@sapphire/discord.js-utilities@^4.0.0", "@sapphire/discord.js-utilities@^4.1.3":
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/@sapphire/discord.js-utilities/-/discord.js-utilities-4.1.4.tgz#85b48bbfd382dc185b892579e16311ea5700c8fc"
-  integrity sha512-bdErZSKufxlOR4twH3Pa12CnQHJiauSzZGJMZ9EIZWob4khmpsAL4g3am5EP2Ifdpu1RJUYJAY7v4lS85De7AA==
+"@sapphire/discord.js-utilities@^4.0.0", "@sapphire/discord.js-utilities@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@sapphire/discord.js-utilities/-/discord.js-utilities-4.1.5.tgz#a25c4ecc1351da7daed8a52d8f519237d4a90688"
+  integrity sha512-172CG8Vd15T1WJXEm4BmtCbiLOclFeqUtwMNXwK+0CWmWfpIVimEm2PKTB31mR+BJ8lNWak3DgKiikzMfCxyCg==
   dependencies:
-    "@sapphire/discord-utilities" "^2.3.0"
+    "@sapphire/discord-utilities" "^2.4.0"
     "@sapphire/time-utilities" "^1.5.0"
     "@sapphire/utilities" "^3.1.0"
     tslib "^2.3.1"
@@ -103,14 +103,14 @@
     cross-fetch "^3.1.4"
 
 "@sapphire/framework@^2.1.3":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/framework/-/framework-2.2.0.tgz#53149d3f01809f09b9695515e0340e4d6b0407ac"
-  integrity sha512-KDDwasVbF6cPaZvOv2wPm9Uci9m1fyrXoLMkiNK0CEZpqWBMgH2j4iCTFnToX4i2e0847FCb1NyLW2ap3JLhCA==
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@sapphire/framework/-/framework-2.2.2.tgz#6a7db891b51e1e1188e4eed9a7e38f58b1151fc8"
+  integrity sha512-1aKkakQn1sXPTvPDTkQMaGM4BghFKOfMtBc0H1KmszdLrSedZgnxu4cJKK9HAarolm5/gHSi2umzGJu50Vv8KA==
   dependencies:
-    "@sapphire/discord-utilities" "^2.2.3"
-    "@sapphire/discord.js-utilities" "^4.1.3"
+    "@sapphire/discord-utilities" "^2.4.0"
+    "@sapphire/discord.js-utilities" "^4.1.5"
     "@sapphire/pieces" "^3.2.0"
-    "@sapphire/ratelimits" "^2.1.9"
+    "@sapphire/ratelimits" "^2.1.10"
     "@sapphire/utilities" "^3.1.0"
     lexure "^0.17.0"
     tslib "^2.3.1"
@@ -167,7 +167,7 @@
   dependencies:
     prettier "^2.5.0"
 
-"@sapphire/ratelimits@^2.1.4", "@sapphire/ratelimits@^2.1.9":
+"@sapphire/ratelimits@^2.1.10", "@sapphire/ratelimits@^2.1.4":
   version "2.1.10"
   resolved "https://registry.yarnpkg.com/@sapphire/ratelimits/-/ratelimits-2.1.10.tgz#cab31c3f73e1c3cddd89197d20af732b78f8b88a"
   integrity sha512-xcNRJPyvOMB/76IrZulNtJp38H4kDUE8ZzpTTkm9fAV2rut08zF5G74+rT8gDqfof9qUYRsgM+kmRru8TweiDA==
