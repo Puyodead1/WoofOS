@@ -6,3 +6,4 @@ staleLabel: stale
 issues:
    exemptLabels:
      - enhancement
+     - todo
