@@ -78,21 +78,21 @@
   dependencies:
     tslib "^2.3.1"
 
-"@sapphire/discord-utilities@^2.2.3", "@sapphire/discord-utilities@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/discord-utilities/-/discord-utilities-2.3.0.tgz#de2ba8190970902fba7f4c07178faa7db119c765"
-  integrity sha512-GQwuJxDCFIrXJ/K4KLDefroi0uy4WzBFiea3UB8aOHolqkobQM6mFbRkZ6aBzTBcAknqucFDa7MOHfU2QmnQkA==
+"@sapphire/discord-utilities@^2.7.0":
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/discord-utilities/-/discord-utilities-2.7.0.tgz#2f488f568e86322e459c3756ae3b0c8012117ce9"
+  integrity sha512-nGr+JZG/C5z+WxKmOaEygwPJb9tSBnpI22O+PQaMTk121+VXzqTUotgHmMBIenNLQgocGpCYB5VlGH50A0+ZRw==
   dependencies:
     twemoji-parser "^13.1.0"
 
-"@sapphire/discord.js-utilities@^4.0.0", "@sapphire/discord.js-utilities@^4.1.3":
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/@sapphire/discord.js-utilities/-/discord.js-utilities-4.1.4.tgz#85b48bbfd382dc185b892579e16311ea5700c8fc"
-  integrity sha512-bdErZSKufxlOR4twH3Pa12CnQHJiauSzZGJMZ9EIZWob4khmpsAL4g3am5EP2Ifdpu1RJUYJAY7v4lS85De7AA==
+"@sapphire/discord.js-utilities@^4.0.0", "@sapphire/discord.js-utilities@^4.6.0":
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/@sapphire/discord.js-utilities/-/discord.js-utilities-4.6.1.tgz#771eb82044f378868ecf72d42a1dab0fc62251a6"
+  integrity sha512-NNXyokTKAF9bgwL5oxVUakRLCr1DDftAL1nnjHq2ezHyl/7a+z9suazPPm1tV+fwjTXVVMA90EW349RXD3siZQ==
   dependencies:
-    "@sapphire/discord-utilities" "^2.3.0"
-    "@sapphire/time-utilities" "^1.5.0"
-    "@sapphire/utilities" "^3.1.0"
+    "@sapphire/discord-utilities" "^2.7.0"
+    "@sapphire/time-utilities" "^1.6.0"
+    "@sapphire/utilities" "^3.3.0"
     tslib "^2.3.1"
 
 "@sapphire/fetch@^2.0.2":
@@ -103,15 +103,15 @@
     cross-fetch "^3.1.4"
 
 "@sapphire/framework@^2.1.3":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/framework/-/framework-2.2.0.tgz#53149d3f01809f09b9695515e0340e4d6b0407ac"
-  integrity sha512-KDDwasVbF6cPaZvOv2wPm9Uci9m1fyrXoLMkiNK0CEZpqWBMgH2j4iCTFnToX4i2e0847FCb1NyLW2ap3JLhCA==
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/framework/-/framework-2.4.0.tgz#c8fb25459d24121c55d41a7a60f73fc09e6944da"
+  integrity sha512-riSa2q6dUZeEcsP1INq2kHOukLGDLniD3JsAtx1SNBS1K73tUbm4HUO0Ez7xQJUiWJXpAOGAncddHrYK3BeJPg==
   dependencies:
-    "@sapphire/discord-utilities" "^2.2.3"
-    "@sapphire/discord.js-utilities" "^4.1.3"
+    "@sapphire/discord-utilities" "^2.7.0"
+    "@sapphire/discord.js-utilities" "^4.6.0"
     "@sapphire/pieces" "^3.2.0"
-    "@sapphire/ratelimits" "^2.1.9"
-    "@sapphire/utilities" "^3.1.0"
+    "@sapphire/ratelimits" "^2.3.0"
+    "@sapphire/utilities" "^3.3.0"
     lexure "^0.17.0"
     tslib "^2.3.1"
 
@@ -167,12 +167,12 @@
   dependencies:
     prettier "^2.5.0"
 
-"@sapphire/ratelimits@^2.1.4", "@sapphire/ratelimits@^2.1.9":
-  version "2.1.10"
-  resolved "https://registry.yarnpkg.com/@sapphire/ratelimits/-/ratelimits-2.1.10.tgz#cab31c3f73e1c3cddd89197d20af732b78f8b88a"
-  integrity sha512-xcNRJPyvOMB/76IrZulNtJp38H4kDUE8ZzpTTkm9fAV2rut08zF5G74+rT8gDqfof9qUYRsgM+kmRru8TweiDA==
+"@sapphire/ratelimits@^2.1.4", "@sapphire/ratelimits@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/ratelimits/-/ratelimits-2.3.0.tgz#b0be6363773b198469aaedb008bcf3f9b3ca6ff6"
+  integrity sha512-9M77G919H0slFMo8YJCwBbAsHcnxhiIQj/A6plzfbVLHx8nVA+tOkWguXZVJxw5Rz0hX9LyjWtNWJzPXmW12qA==
   dependencies:
-    "@sapphire/time-utilities" "^1.5.0"
+    "@sapphire/time-utilities" "^1.6.0"
 
 "@sapphire/stopwatch@^1.2.3":
   version "1.2.4"
@@ -181,12 +181,19 @@
   dependencies:
     tslib "^2.3.1"
 
-"@sapphire/time-utilities@^1.4.4", "@sapphire/time-utilities@^1.4.9", "@sapphire/time-utilities@^1.5.0":
+"@sapphire/time-utilities@^1.4.4", "@sapphire/time-utilities@^1.4.9":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@sapphire/time-utilities/-/time-utilities-1.5.0.tgz#72b8e248a1902c7b392be850994aadf533c7e688"
   integrity sha512-D0k03sFafueJ/O9sIVJNfL9COYh9T0Ce/kzU8JWdZwUvvkVV9vv18/xP5LgRfiINunO22OxbCbC1vYLrshi7SA==
   dependencies:
     "@sapphire/utilities" "^3.1.0"
+
+"@sapphire/time-utilities@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/time-utilities/-/time-utilities-1.6.0.tgz#89624a63861814bd41fe29db80c9dbe9f3625760"
+  integrity sha512-GKS3LdHS7Bec+FUx9cZY88edebK9vdt5rm0VCgc8s17O/WHl5KFcuyXRlWyIF7TLlYe1vBmMIl5YBE1EjHvJBA==
+  dependencies:
+    "@sapphire/utilities" "^3.3.0"
 
 "@sapphire/ts-config@^3.1.2":
   version "3.1.6"
@@ -205,10 +212,10 @@
     nan "^2.15.0"
     tslib "^2.3.1"
 
-"@sapphire/utilities@^3.0.4", "@sapphire/utilities@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-3.1.0.tgz#50f18c8ae10535c4fde6b2c68c2a45262c45756f"
-  integrity sha512-Vwsd567hZ1LPDh791r4DHwxlO1EzUefjYhNj+kwbliHWK2TVPhMvF5v1eZKtUCgdBmobqa8CBPwCwymHstuj5w==
+"@sapphire/utilities@^3.0.4", "@sapphire/utilities@^3.1.0", "@sapphire/utilities@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-3.3.0.tgz#62ff0a52cd86bd6169a94b2f217d72da6772a3cd"
+  integrity sha512-wWESfB03elALhci3GjcacRh8pnK89Qe5AEKCQplKyTCKabWl64SAFw52hQBth2fMmJStgK1fr87aGhRZAB8DNA==
 
 "@sindresorhus/is@^4.0.1", "@sindresorhus/is@^4.2.0":
   version "4.2.0"
