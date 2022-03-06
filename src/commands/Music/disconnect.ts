@@ -11,7 +11,7 @@ import { getVoiceConnection } from '@discordjs/voice';
 		register: true,
 		guildIds: ['638455519652085780'],
 		idHints: ['918603001608949770'],
-		registerBehavior: RegisterBehavior.Overwrite
+		behaviorWhenNotIdentical: RegisterBehavior.Overwrite
 	}
 })
 export class UserCommand extends Command {

@@ -1,7 +1,8 @@
-import { ApplyOptions } from '@sapphire/decorators';
-import { ApplicationCommandRegistry, Command, CommandOptions, RegisterBehavior } from '@sapphire/framework';
-import type { CommandInteraction } from 'discord.js';
 import { joinVoiceChannel } from '@discordjs/voice';
+import { ApplyOptions } from '@sapphire/decorators';
+import { ApplicationCommandRegistry, CommandOptions, RegisterBehavior } from '@sapphire/framework';
+import type { CommandInteraction } from 'discord.js';
+import { WoofCommand } from '../../lib/WoofCommand';
 
 @ApplyOptions<CommandOptions>({
 	name: 'Join',
@@ -9,10 +10,10 @@ import { joinVoiceChannel } from '@discordjs/voice';
 	requiredClientPermissions: ['CONNECT'],
 	aliases: ['summon', 'connect']
 })
-export class UserCommand extends Command {
+export class UserCommand extends WoofCommand {
 	public override async chatInputRun(interaction: CommandInteraction) {
 		// TODO: check if bot is already in a channel and ask for confirmation to switch channels
-		if (!interaction.guild) return interaction.reply('This command can only be used in a guild.');
+		if (!interaction.guild || !interaction.member) return interaction.reply('This command can only be used in a guild.');
 		const member = interaction.guild.members.cache.get(interaction.member.user.id);
 		let channel = interaction.options.getChannel('channel_to_join', false);
 		if (channel && channel.type !== 'GUILD_VOICE') return interaction.reply('The channel you specified is not a voice channel.');
@@ -26,7 +27,7 @@ export class UserCommand extends Command {
 		const connection = joinVoiceChannel({
 			channelId: channel.id,
 			guildId: channel.guildId,
-			adapterCreator: channel.guild.voiceAdapterCreator
+			adapterCreator: channel.guild.voiceAdapterCreator as any
 		});
 		return interaction.reply(`Joined <#${channel.id}>`);
 	}

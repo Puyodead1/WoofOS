@@ -1,7 +1,8 @@
 import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions, RegisterBehavior } from '@sapphire/framework';
+import { CommandOptions, RegisterBehavior } from '@sapphire/framework';
 import { CommandInteraction, MessageEmbed } from 'discord.js';
 import { BRANDING_COLOR, BRANDING_SERVER, BRANDING_WEBSITE } from '../../config';
+import { WoofCommand } from '../../lib/WoofCommand';
 
 @ApplyOptions<CommandOptions>({
 	name: 'Help',
@@ -11,10 +12,10 @@ import { BRANDING_COLOR, BRANDING_SERVER, BRANDING_WEBSITE } from '../../config'
 		register: true,
 		guildIds: ['638455519652085780'],
 		idHints: ['918584258002554951'],
-		registerBehavior: RegisterBehavior.Overwrite
+		behaviorWhenNotIdentical: RegisterBehavior.Overwrite
 	}
 })
-export class UserCommand extends Command {
+export class UserCommand extends WoofCommand {
 	public override async chatInputRun(interaction: CommandInteraction) {
 		const embed = new MessageEmbed()
 			.setTimestamp()

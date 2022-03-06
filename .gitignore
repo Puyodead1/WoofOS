@@ -2,3 +2,5 @@ node_modules/
 build/
 config.ts
 tsconfig.tsbuildinfo
+deezer_test.js
+.yarn/cache/

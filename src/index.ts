@@ -1,4 +1,3 @@
-import { container } from '@sapphire/pieces';
 import { CLIENT_OPTIONS, TOKEN, DEEZER_ARL } from './config';
 import WoofClient from './lib/WoofClient';
 
@@ -15,7 +14,7 @@ client.on('ready', () => {
 
 	console.log(`[Startup] Logging in to Deezer`);
 	try {
-		await container.deezer.login_via_arl(DEEZER_ARL);
+		await client.deezer.login_via_arl(DEEZER_ARL);
 		console.log(`[Startup] Logged in to Deezer`);
 	} catch (e) {
 		console.error(`[Startup] Failed to login to Deezer`, e);
