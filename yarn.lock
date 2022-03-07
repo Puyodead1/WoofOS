@@ -145,11 +145,11 @@
     tslib "^2.3.1"
 
 "@sapphire/plugin-logger@^2.0.1":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/plugin-logger/-/plugin-logger-2.1.0.tgz#4a80e3e19f4f7adc56ebe6bf417f7b3ee320a585"
-  integrity sha512-j67lcwSuuRt0lZnhxyWLMSBuUlAoDL9QLFUWC4uxA6qwoulZtdWehREbj8WTXVKZ4yM9M4aSV+OEaQDB0qKUEg==
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/plugin-logger/-/plugin-logger-2.2.0.tgz#c06a87dc1d5f99611a63b2972e56a96a21f3ab2e"
+  integrity sha512-r72gFCZnr1AQ71/VXx3DZXSMsPOihAUMWVG+i3klP1KAYKhlNL6veayerTCPxuq6QOL+uFx+yAL09TkifQj4zw==
   dependencies:
-    "@sapphire/time-utilities" "^1.4.9"
+    "@sapphire/time-utilities" "^1.6.0"
     colorette "^2.0.16"
     tslib "^2.3.1"
 
@@ -181,12 +181,12 @@
   dependencies:
     tslib "^2.3.1"
 
-"@sapphire/time-utilities@^1.4.4", "@sapphire/time-utilities@^1.4.9", "@sapphire/time-utilities@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/time-utilities/-/time-utilities-1.5.0.tgz#72b8e248a1902c7b392be850994aadf533c7e688"
-  integrity sha512-D0k03sFafueJ/O9sIVJNfL9COYh9T0Ce/kzU8JWdZwUvvkVV9vv18/xP5LgRfiINunO22OxbCbC1vYLrshi7SA==
+"@sapphire/time-utilities@^1.4.4", "@sapphire/time-utilities@^1.5.0", "@sapphire/time-utilities@^1.6.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/time-utilities/-/time-utilities-1.7.0.tgz#c5a502378f7af0ad300e0d306afa5a35ed8e87f8"
+  integrity sha512-4dY8sFd+LOBAF/1ELoAlhetnrjINBIziaDNSNJvmWtxPGlSDjGcYqtDk+rIHwIF9ZnVnWqbshg5Tpne5Hw+X9g==
   dependencies:
-    "@sapphire/utilities" "^3.1.0"
+    "@sapphire/utilities" "^3.4.0"
 
 "@sapphire/ts-config@^3.1.2":
   version "3.1.6"
@@ -209,6 +209,11 @@
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-3.1.0.tgz#50f18c8ae10535c4fde6b2c68c2a45262c45756f"
   integrity sha512-Vwsd567hZ1LPDh791r4DHwxlO1EzUefjYhNj+kwbliHWK2TVPhMvF5v1eZKtUCgdBmobqa8CBPwCwymHstuj5w==
+
+"@sapphire/utilities@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-3.4.0.tgz#cc176dbab9d8854ef4ad6e1eba3bdac153758665"
+  integrity sha512-d6IWoETMpyTbPgSvH8bDZ2eqVq1/8GhN3LWk/v44Ut4GxFaI5U23ig55DGIUC3z0Ace1TrYFvKKCBnY4NH0RqQ==
 
 "@sindresorhus/is@^4.0.1", "@sindresorhus/is@^4.2.0":
   version "4.2.0"
