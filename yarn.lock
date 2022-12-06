@@ -168,11 +168,11 @@
     prettier "^2.5.0"
 
 "@sapphire/ratelimits@^2.1.4", "@sapphire/ratelimits@^2.1.9":
-  version "2.1.10"
-  resolved "https://registry.yarnpkg.com/@sapphire/ratelimits/-/ratelimits-2.1.10.tgz#cab31c3f73e1c3cddd89197d20af732b78f8b88a"
-  integrity sha512-xcNRJPyvOMB/76IrZulNtJp38H4kDUE8ZzpTTkm9fAV2rut08zF5G74+rT8gDqfof9qUYRsgM+kmRru8TweiDA==
+  version "2.4.5"
+  resolved "https://registry.yarnpkg.com/@sapphire/ratelimits/-/ratelimits-2.4.5.tgz#40049436fcd3694acb8ddaf2eb61ea0963a0f9a0"
+  integrity sha512-2wqpVPRaPUE+CWStLm6wGLj1uA4Ln/9qbH4Ue/eCHC6/R5lJz0+8nGD1LpiYOcyeVLTHbmwODGeD92obkPej2g==
   dependencies:
-    "@sapphire/time-utilities" "^1.5.0"
+    "@sapphire/timer-manager" "^1.0.0"
 
 "@sapphire/stopwatch@^1.2.3":
   version "1.2.4"
@@ -187,6 +187,11 @@
   integrity sha512-D0k03sFafueJ/O9sIVJNfL9COYh9T0Ce/kzU8JWdZwUvvkVV9vv18/xP5LgRfiINunO22OxbCbC1vYLrshi7SA==
   dependencies:
     "@sapphire/utilities" "^3.1.0"
+
+"@sapphire/timer-manager@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/timer-manager/-/timer-manager-1.0.0.tgz#e8ecf15a7042ee611048b4f90fab1399653d3934"
+  integrity sha512-vxxnv75QPMGKt6IB6nL2xRJfwzcUQ9DBGzJLg6G8eS5O4u7j3IR/yr/GQsa4gIpjw6kQOgn8lUdnSTlpnERTbQ==
 
 "@sapphire/ts-config@^3.1.2":
   version "3.1.6"
