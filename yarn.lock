@@ -383,9 +383,9 @@ better-logging@^4.5.1:
     fast-safe-stringify "^2.1.1"
 
 binarytf@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/binarytf/-/binarytf-2.0.0.tgz#c5476cc5cdf023d075b9b8fa62612b86d36f666c"
-  integrity sha512-CS0MvijAFAHBBw4LgIHBP7wzdW3KWEB0KeMjblK0rHOyyhnkoMu3puW7uhJXlnS5WDn5M2XQFaQBtw00FwRfcA==
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/binarytf/-/binarytf-2.1.2.tgz#d412ab8891a4a4a98e9da325196bce55f2a4808b"
+  integrity sha512-cF3/wOpi+qNMdBUvqjL8P25fnQrSNCOh6SNI3iFF7ViJLbc5N5YruFjTmFCmMj1FgTyWoGC/UhGXS/tEKN5Ycw==
 
 bl@^2.2.1:
   version "2.2.1"
