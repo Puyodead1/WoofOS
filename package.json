@@ -63,7 +63,7 @@
 		"simple-youtube-api": "^5.2.1",
 		"spotify-web-api-node": "^5.0.2",
 		"typeorm": "^0.2.38",
-		"typeorm-naming-strategies": "^2.0.0"
+		"typeorm-naming-strategies": "^4.1.0"
 	},
 	"devDependencies": {
 		"@sapphire/prettier-config": "^1.2.3",
