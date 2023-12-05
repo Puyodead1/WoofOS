@@ -67,9 +67,9 @@
   integrity sha512-dM8+K04V3ZhRt/FadIIidXT3MykFjSetmZzV940nYY6iCUeGF2LSxJNwK3JQD06N9F1JjDPLXtIIYxffEJEcHw==
 
 "@sapphire/async-queue@^1.1.7", "@sapphire/async-queue@^1.1.8":
-  version "1.1.9"
-  resolved "https://registry.yarnpkg.com/@sapphire/async-queue/-/async-queue-1.1.9.tgz#ce69611c8753c4affd905a7ef43061c7eb95c01b"
-  integrity sha512-CbXaGwwlEMq+l1TRu01FJCvySJ1CEFKFclHT48nIfNeZXaAAmmwwy7scUKmYHPUa3GhoMp6Qr1B3eAJux6XgOQ==
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@sapphire/async-queue/-/async-queue-1.5.1.tgz#f72f8f0dea05e83ba830387567dd6ef8a996537a"
+  integrity sha512-1RdpsmDQR/aWfp8oJzPtn4dNQrbpqSL5PIA0uAB/XwerPXUf994Ug1au1e7uGcD7ei8/F63UDjr5GWps1g/HxQ==
 
 "@sapphire/decorators@^3.1.2":
   version "3.1.4"
