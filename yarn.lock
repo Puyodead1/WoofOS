@@ -71,6 +71,13 @@
   resolved "https://registry.yarnpkg.com/@sapphire/async-queue/-/async-queue-1.1.9.tgz#ce69611c8753c4affd905a7ef43061c7eb95c01b"
   integrity sha512-CbXaGwwlEMq+l1TRu01FJCvySJ1CEFKFclHT48nIfNeZXaAAmmwwy7scUKmYHPUa3GhoMp6Qr1B3eAJux6XgOQ==
 
+"@sapphire/cron@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@sapphire/cron/-/cron-1.2.1.tgz#a248cb69a8b0798e7fd152f67546cb668e7234e7"
+  integrity sha512-K96GX4UkzgC/Y2VHXVjhM2Bl4D04552nr/fDiOj9bOACW1+wqeFfLJ3eV6jleTSXmzPIwDvkPIUJLf8A5KSD+w==
+  dependencies:
+    "@sapphire/utilities" "^3.18.1"
+
 "@sapphire/decorators@^3.1.2":
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/@sapphire/decorators/-/decorators-3.1.4.tgz#598aca9891691b205cf051912f82ddc0bd436c51"
@@ -94,6 +101,11 @@
     "@sapphire/time-utilities" "^1.5.0"
     "@sapphire/utilities" "^3.1.0"
     tslib "^2.3.1"
+
+"@sapphire/duration@^1.1.4":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/duration/-/duration-1.2.0.tgz#e0174279b4a1a8e15d6daebd8536b5bec656dbf7"
+  integrity sha512-LxjOAFXz81WmrI8XX9YaVcAZDjQj/1p78lZCvkAWZB1nphOwz/D0dU3CBejmhOWx5dO5CszTkLJMNR0xuCK+Zg==
 
 "@sapphire/fetch@^2.0.2":
   version "2.0.3"
@@ -182,11 +194,24 @@
     tslib "^2.3.1"
 
 "@sapphire/time-utilities@^1.4.4", "@sapphire/time-utilities@^1.4.9", "@sapphire/time-utilities@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/time-utilities/-/time-utilities-1.5.0.tgz#72b8e248a1902c7b392be850994aadf533c7e688"
-  integrity sha512-D0k03sFafueJ/O9sIVJNfL9COYh9T0Ce/kzU8JWdZwUvvkVV9vv18/xP5LgRfiINunO22OxbCbC1vYLrshi7SA==
+  version "1.7.14"
+  resolved "https://registry.yarnpkg.com/@sapphire/time-utilities/-/time-utilities-1.7.14.tgz#c8946897759fe3021d093afe6fa41950cfa311e4"
+  integrity sha512-UVJQ9oyzXcmJVVf9Y9ucGzRmKoPxe6SehpQlBNTX7CTVu0aj1lrEGL+bBa0Mu7hxF5DYXYjDYeO1e5BR0eg90Q==
   dependencies:
-    "@sapphire/utilities" "^3.1.0"
+    "@sapphire/cron" "^1.2.1"
+    "@sapphire/duration" "^1.1.4"
+    "@sapphire/timer-manager" "^1.0.4"
+    "@sapphire/timestamp" "^1.0.5"
+
+"@sapphire/timer-manager@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@sapphire/timer-manager/-/timer-manager-1.0.4.tgz#b8200bebc4acde74bd25e85773cce4ab654ee95f"
+  integrity sha512-gc1JW8oui86f2l0T/1Iwd7hZTgus8b46slitTR2y0+wiMAEYxdp6vVTHvMAEHOqX8drkxK70aGfZmQKbAcgFqQ==
+
+"@sapphire/timestamp@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@sapphire/timestamp/-/timestamp-1.0.5.tgz#398540f84d149ba0d6535c73d86c28f801411a3e"
+  integrity sha512-oNwWyNdbt5wm4aYZvlHl1+64U3g0xrFmRIHsnER7RgMxNnp/wmAE4yTK2oUHeadg3t4V9iYctPAQCF+aINke4g==
 
 "@sapphire/ts-config@^3.1.2":
   version "3.1.6"
@@ -205,10 +230,10 @@
     nan "^2.15.0"
     tslib "^2.3.1"
 
-"@sapphire/utilities@^3.0.4", "@sapphire/utilities@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-3.1.0.tgz#50f18c8ae10535c4fde6b2c68c2a45262c45756f"
-  integrity sha512-Vwsd567hZ1LPDh791r4DHwxlO1EzUefjYhNj+kwbliHWK2TVPhMvF5v1eZKtUCgdBmobqa8CBPwCwymHstuj5w==
+"@sapphire/utilities@^3.0.4", "@sapphire/utilities@^3.1.0", "@sapphire/utilities@^3.18.1":
+  version "3.18.2"
+  resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-3.18.2.tgz#42f1cec0b9bc5fac411b21f40893bed5770d4a0b"
+  integrity sha512-QGLdC9+pT74Zd7aaObqn0EUfq40c4dyTL65pFnkM6WO1QYN7Yg/s4CdH+CXmx0Zcu6wcfCWILSftXPMosJHP5A==
 
 "@sindresorhus/is@^4.0.1", "@sindresorhus/is@^4.2.0":
   version "4.2.0"
