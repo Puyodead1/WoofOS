@@ -168,11 +168,9 @@
     prettier "^2.5.0"
 
 "@sapphire/ratelimits@^2.1.4", "@sapphire/ratelimits@^2.1.9":
-  version "2.1.10"
-  resolved "https://registry.yarnpkg.com/@sapphire/ratelimits/-/ratelimits-2.1.10.tgz#cab31c3f73e1c3cddd89197d20af732b78f8b88a"
-  integrity sha512-xcNRJPyvOMB/76IrZulNtJp38H4kDUE8ZzpTTkm9fAV2rut08zF5G74+rT8gDqfof9qUYRsgM+kmRru8TweiDA==
-  dependencies:
-    "@sapphire/time-utilities" "^1.5.0"
+  version "2.4.11"
+  resolved "https://registry.yarnpkg.com/@sapphire/ratelimits/-/ratelimits-2.4.11.tgz#4c7229e0e716adf414af2bf2b9d406676ee4d8e5"
+  integrity sha512-O6FNA/P0wxU4Ve9gxL948CoZw7+sSpujyUR2CLyLLCNuNvuFGFxPCJVl5crFVLXMIyBIrc2qk+/H9bsqsyQK1Q==
 
 "@sapphire/stopwatch@^1.2.3":
   version "1.2.4"
