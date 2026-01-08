@@ -836,17 +836,17 @@ lexure@^0.17.0:
   resolved "https://registry.yarnpkg.com/lexure/-/lexure-0.17.0.tgz#95c26ee49dc3df5f28e2826b1647eb7569aab12a"
   integrity sha512-0L8GqFgPW36sLNqxdp2VOOef5Ajpb98kc0Zk4AzE+Yf0xYTDndcT1vpFqwkTdrCCw+FV8DH4mC9NUw0RlARThA==
 
-libsodium-wrappers@^0.7.9:
-  version "0.7.9"
-  resolved "https://registry.yarnpkg.com/libsodium-wrappers/-/libsodium-wrappers-0.7.9.tgz#4ffc2b69b8f7c7c7c5594a93a4803f80f6d0f346"
-  integrity sha512-9HaAeBGk1nKTRFRHkt7nzxqCvnkWTjn1pdjKgcUnZxj0FyOP4CnhgFhMdrFfgNsukijBGyBLpP2m2uKT1vuWhQ==
+libsodium-wrappers@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/libsodium-wrappers/-/libsodium-wrappers-0.8.0.tgz#4c5f3ce5afb73b3b7dba2d081a01cf33ec1a1403"
+  integrity sha512-PVyXAtP1nmpQrDKAVnA8pir0f7bj7vmMGs7mb+0OCSJ+BOfLNBb5hPy2GHfrx6cQ+Co9fMliR5R0WRbVuMllNA==
   dependencies:
-    libsodium "^0.7.0"
+    libsodium "^0.8.0"
 
-libsodium@^0.7.0:
-  version "0.7.9"
-  resolved "https://registry.yarnpkg.com/libsodium/-/libsodium-0.7.9.tgz#4bb7bcbf662ddd920d8795c227ae25bbbfa3821b"
-  integrity sha512-gfeADtR4D/CM0oRUviKBViMGXZDgnFdMKMzHsvBdqLBHd9ySi6EtYnmuhHVDDYgYpAO8eU8hEY+F8vIUAPh08A==
+libsodium@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/libsodium/-/libsodium-0.8.0.tgz#4dcfea225d50a16a8a3ec8cd5936d08a695576ce"
+  integrity sha512-GQ4Sg0/Z0Ui6ZvKeTd8bH7VAAqk1ZHZDAo/pcuSi0uPbIN6LYAAotR0GEYb8v+y4/tSsXZPr06D6hhqKd7tnoQ==
 
 lodash.defaults@^4.2.0:
   version "4.2.0"
